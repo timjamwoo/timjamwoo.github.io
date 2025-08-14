@@ -377,6 +377,51 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.9rem;
 }
 
+/* Secondary Skills Styling */
+.secondary-skills {
+  margin-top: 4rem;
+}
+
+.secondary-skills-grid {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.secondary-skill-item {
+  padding: 1rem;
+  background: rgba(45, 212, 191, 0.05);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.secondary-skill-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(45, 212, 191, 0.15);
+  border-color: rgba(45, 212, 191, 0.4);
+}
+
+.secondary-skill-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 0.8rem;
+  background: rgba(45, 212, 191, 0.1);
+  border: 2px solid rgba(45, 212, 191, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0891B2;
+  font-size: 1.5rem;
+}
+
+.secondary-skill-item .skill-name {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
 /* ===== CONTACT SECTION ===== */
 .contact {
   background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
