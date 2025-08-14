@@ -40,6 +40,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1rem 0;
 }
 
+.typing-text {
+  display: inline-block;
+  min-height: 1.8rem; /* Ensures consistent height even when empty */
+  line-height: 1.2;
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
