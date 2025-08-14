@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-title {
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 700;
-  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  background: linear-gradient(135deg, #FFD700, #FFA500, #FFFFFF);
   background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip: text;
