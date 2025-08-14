@@ -574,6 +574,10 @@ h1, h2, h3, h4, h5, h6 {
   .skills-content {
     gap: 2rem;
   }
+  
+  .footer {
+    padding: 1.5rem 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -591,6 +595,12 @@ h1, h2, h3, h4, h5, h6 {
   
   .contact-form {
     padding: 1.5rem;
+  }
+  
+  .footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }
 
