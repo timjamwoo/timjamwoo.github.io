@@ -1,98 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tim Barry-Woods | Developer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: #1e1e1e;
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.1rem;
-      color: #bbb;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      background: #fff;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    h2 {
-      margin-top: 0;
-      color: #1e1e1e;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tim Barry-Woods | Senior .NET Developer & App Creator</title>
+  <meta name="description" content="Senior .NET Developer specializing in MAUI, WPF, and cross-platform applications. 15+ years of experience creating robust, user-friendly software solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Tim Barry-Woods</h1>
-    <p>Senior .NET Developer • App Creator • Problem Solver</p>
-  </header>
-  
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>I'm a freelance software developer with 15 years of experience in C#, .NET, WPF, and MAUI. I create robust, user-friendly applications for mobile and desktop platforms, with a focus on delivering exceptional user experiences.</p>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title fade-in-up">Tim Barry-Woods</h1>
+      <p class="hero-subtitle fade-in-up">
+        <span class="typing-text">Senior .NET Developer</span>
+      </p>
+      <p class="hero-tagline">
+        Crafting exceptional digital experiences with 15+ years of expertise in C#, .NET MAUI, and cross-platform development
+      </p>
+      <a href="#contact" class="cta-button">Let's Build Something Amazing</a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- About Section -->
+    <section class="section about" id="about">
+      <h2 class="section-title animate-on-scroll">About Me</h2>
+      <div class="about-content animate-on-scroll">
+        <div class="about-image">
+          <img src="assets/images/tim.jpg" alt="Tim Barry-Woods" loading="lazy">
+        </div>
+        <div class="about-text">
+          <p>
+            <strong>Turning complex problems into elegant solutions.</strong> With over 15 years in the software industry, I specialize in creating robust, user-centric applications that make a real difference.
+          </p>
+          <p>
+            My passion lies in cross-platform development using .NET MAUI and WPF, where I've helped businesses streamline operations, reduce costs, and improve user satisfaction. From mobile apps to enterprise desktop solutions, I bring technical excellence and creative problem-solving to every project.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring new technologies, mentoring fellow developers, or working on open-source contributions that benefit the wider development community.
+          </p>
+        </div>
+      </div>
     </section>
-    
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Vault App</strong> – Cross-platform travel budgeting tool. <a href="#">View project</a></li>
-        <li><strong>LyrIQ</strong> – AI-powered lyric writing tool. <a href="#">View project</a></li>
-      </ul>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+      <h2 class="section-title animate-on-scroll">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card animate-on-scroll">
+          <div class="project-image">
+            <img src="assets/images/project-1.svg" alt="Vault App" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Vault App</h3>
+            <p class="project-description">
+              A comprehensive cross-platform travel budgeting application built with .NET MAUI. Features real-time expense tracking, currency conversion, and intuitive data visualization.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">.NET MAUI</span>
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">SQLite</span>
+              <span class="tech-tag">REST API</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
+
+        <div class="project-card animate-on-scroll">
+          <div class="project-image">
+            <img src="assets/images/project-2.svg" alt="LyrIQ" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">LyrIQ</h3>
+            <p class="project-description">
+              An AI-powered lyric writing tool that helps musicians and songwriters craft compelling lyrics. Integrates with OpenAI GPT for intelligent suggestions and rhyme generation.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">WPF</span>
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">OpenAI API</span>
+              <span class="tech-tag">Entity Framework</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
+
+        <div class="project-card animate-on-scroll">
+          <div class="project-image">
+            <img src="assets/images/project-3.svg" alt="Custom Solutions" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Enterprise Solutions</h3>
+            <p class="project-description">
+              Custom software solutions for businesses ranging from inventory management systems to CRM applications. Tailored to meet specific business requirements and workflows.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">.NET Core</span>
+              <span class="tech-tag">SQL Server</span>
+              <span class="tech-tag">Azure</span>
+              <span class="tech-tag">React</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
+      </div>
     </section>
-    
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:tim@timbarrywoods.dev">tim@timbarrywoods.dev</a></p>
-      <p>GitHub: <a href="https://github.com/timbarrywoods">github.com/timbarrywoods</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/tim-barry-woods">linkedin.com/in/tim-barry-woods</a></p>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+      <h2 class="section-title animate-on-scroll">Technical Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-item animate-on-scroll">
+          <div class="skill-icon">C#</div>
+          <div class="skill-name">C#</div>
+        </div>
+        <div class="skill-item animate-on-scroll">
+          <div class="skill-icon">.NET</div>
+          <div class="skill-name">.NET Core</div>
+        </div>
+        <div class="skill-item animate-on-scroll">
+          <div class="skill-icon">MAUI</div>
+          <div class="skill-name">.NET MAUI</div>
+        </div>
+        <div class="skill-item animate-on-scroll">
+          <div class="skill-icon">WPF</div>
+          <div class="skill-name">WPF</div>
+        </div>
+        <div class="skill-item animate-on-scroll">
+          <div class="skill-icon">SQL</div>
+          <div class="skill-name">SQL Server</div>
+        </div>
+        <div class="skill-item animate-on-scroll">
+          <div class="skill-icon">JS</div>
+          <div class="skill-name">JavaScript</div>
+        </div>
+        <div class="skill-item animate-on-scroll">
+          <div class="skill-icon">⚛</div>
+          <div class="skill-name">React</div>
+        </div>
+        <div class="skill-item animate-on-scroll">
+          <div class="skill-icon">☁</div>
+          <div class="skill-name">Azure</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+      <h2 class="section-title">Let's Work Together</h2>
+      <div class="contact-content">
+        <div class="contact-info animate-on-scroll">
+          <h3>Ready to Start Your Next Project?</h3>
+          <p>
+            I'm always excited to take on new challenges and help bring innovative ideas to life. Whether you need a mobile app, desktop application, or enterprise solution, let's discuss how we can make it happen.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:tim@timbarrywoods.dev" class="contact-link">
+              ✉ tim@timbarrywoods.dev
+            </a>
+            <a href="https://github.com/timbarrywoods" class="contact-link" target="_blank" rel="noopener">
+              🐙 GitHub
+            </a>
+            <a href="https://linkedin.com/in/tim-barry-woods" class="contact-link" target="_blank" rel="noopener">
+              💼 LinkedIn
+            </a>
+          </div>
+        </div>
+        <form class="contact-form animate-on-scroll" id="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
     </section>
   </main>
-  
-  <footer>
-    &copy; <span id="year"></span> Tim Barry-Woods. All rights reserved.
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Tim Barry-Woods. All rights reserved. Built with passion and precision.</p>
   </footer>
-  
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
