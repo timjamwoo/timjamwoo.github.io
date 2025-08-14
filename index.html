@@ -7,7 +7,8 @@
   <meta name="description" content="Senior .NET Developer specializing in MAUI, WPF, and cross-platform applications. 15+ years of experience creating robust, user-friendly software solutions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://kit.fontawesome.com/f8adee6012.js" crossorigin="anonymous"/>
 </head>
@@ -51,22 +52,21 @@
 
     <!-- Projects Section -->
     <section class="section projects" id="projects">
-      <h2 class="section-title animate-on-scroll">Featured Projects</h2>
+      <h2 class="section-title animate-on-scroll"><i class="fas fa-folder-open"></i> Featured Projects</h2>
       <div class="projects-grid">
         <div class="project-card animate-on-scroll">
           <div class="project-image">
-            <img src="assets/images/project-1.svg" alt="Vault App" loading="lazy">
+            <img src="assets/images/vault-placeholder.svg" alt="Vault App" loading="lazy">
           </div>
           <div class="project-content">
-            <h3 class="project-title">Vault App</h3>
+            <h3 class="project-title">Vault</h3>
             <p class="project-description">
-              A comprehensive cross-platform travel budgeting application built with .NET MAUI. Features real-time expense tracking, currency conversion, and intuitive data visualization.
+              A cross-platform travel budgeting app built with .NET MAUI, designed to make it easy to track expenses on the go in multiple currencies. Created in collaboration with travel brand StephMyLife, Vault helps travellers stay in control of their budgets without the stress of spreadsheets. It's currently in late-stage development, and I can't wait to see it in people's hands.
             </p>
             <div class="project-tech">
               <span class="tech-tag">.NET MAUI</span>
               <span class="tech-tag">C#</span>
               <span class="tech-tag">SQLite</span>
-              <span class="tech-tag">REST API</span>
             </div>
             <a href="#" class="project-link">View Project →</a>
           </div>
@@ -74,18 +74,17 @@
 
         <div class="project-card animate-on-scroll">
           <div class="project-image">
-            <img src="assets/images/project-2.svg" alt="LyrIQ" loading="lazy">
+            <img src="assets/images/lyriq-placeholder.svg" alt="LyrIQ" loading="lazy">
           </div>
           <div class="project-content">
             <h3 class="project-title">LyrIQ</h3>
             <p class="project-description">
-              An AI-powered lyric writing tool that helps musicians and songwriters craft compelling lyrics. Integrates with OpenAI GPT for intelligent suggestions and rhyme generation.
+              An AI-assisted lyric writing tool for musicians, aimed at sparking ideas and breaking creative blocks. LyrIQ blends my love of music with my experience in software design, offering a space where inspiration and technology meet. It's still in active development, but early feedback from songwriters has been really encouraging.
             </p>
             <div class="project-tech">
-              <span class="tech-tag">WPF</span>
+              <span class="tech-tag">.NET MAUI</span>
               <span class="tech-tag">C#</span>
-              <span class="tech-tag">OpenAI API</span>
-              <span class="tech-tag">Entity Framework</span>
+              <span class="tech-tag">AI Integration</span>
             </div>
             <a href="#" class="project-link">View Project →</a>
           </div>
@@ -93,18 +92,17 @@
 
         <div class="project-card animate-on-scroll">
           <div class="project-image">
-            <img src="assets/images/project-3.svg" alt="Custom Solutions" loading="lazy">
+            <img src="assets/images/visual-service-placeholder.svg" alt="Visual Service App" loading="lazy">
           </div>
           <div class="project-content">
-            <h3 class="project-title">Enterprise Solutions</h3>
+            <h3 class="project-title">Visual Service</h3>
             <p class="project-description">
-              Custom software solutions for businesses ranging from inventory management systems to CRM applications. Tailored to meet specific business requirements and workflows.
+              A hybrid WPF and .NET MAUI application built for HVAC engineers to connect field teams with head office in real time. It includes live video calls, Bluetooth device connectivity, real-time charting, and system analytics — all wrapped in a user-friendly interface. Helping engineers work smarter and train faster on complex systems has been one of the most rewarding parts of this project.
             </p>
             <div class="project-tech">
-              <span class="tech-tag">.NET Core</span>
-              <span class="tech-tag">SQL Server</span>
-              <span class="tech-tag">Azure</span>
-              <span class="tech-tag">React</span>
+              <span class="tech-tag">WPF</span>
+              <span class="tech-tag">.NET MAUI</span>
+              <span class="tech-tag">Real-time</span>
             </div>
             <a href="#" class="project-link">View Project →</a>
           </div>
@@ -114,61 +112,96 @@
 
     <!-- Skills Section -->
     <section class="section skills" id="skills">
-      <h2 class="section-title animate-on-scroll">Technical Expertise</h2>
-      <div class="skills-grid">
-        <div class="skill-item animate-on-scroll">
-          <div class="skill-icon">C#</div>
-          <div class="skill-name">C#</div>
+      <h2 class="section-title animate-on-scroll"><i class="fas fa-code"></i> Technical Expertise</h2>
+      <div class="skills-content">
+        <div class="skills-category">
+          <h3 class="skills-category-title">Core Skills</h3>
+          <div class="skills-grid">
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-name">C#</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-name">.NET MAUI</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-name">WPF</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-code"></i></div>
+              <div class="skill-name">MVVM</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+              <div class="skill-name">Azure</div>
+            </div>
+
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+              <div class="skill-name">Git</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <div class="skill-name">SQL</div>
+            </div>
+          </div>
         </div>
-        <div class="skill-item animate-on-scroll">
-          <div class="skill-icon">.NET</div>
-          <div class="skill-name">.NET Core</div>
-        </div>
-        <div class="skill-item animate-on-scroll">
-          <div class="skill-icon">MAUI</div>
-          <div class="skill-name">.NET MAUI</div>
-        </div>
-        <div class="skill-item animate-on-scroll">
-          <div class="skill-icon">WPF</div>
-          <div class="skill-name">WPF</div>
-        </div>
-        <div class="skill-item animate-on-scroll">
-          <div class="skill-icon">SQL</div>
-          <div class="skill-name">SQL Server</div>
-        </div>
-        <div class="skill-item animate-on-scroll">
-          <div class="skill-icon">JS</div>
-          <div class="skill-name">JavaScript</div>
-        </div>
-        <div class="skill-item animate-on-scroll">
-          <div class="skill-icon">⚛</div>
-          <div class="skill-name">React</div>
-        </div>
-        <div class="skill-item animate-on-scroll">
-          <div class="skill-icon">☁</div>
-          <div class="skill-name">Azure</div>
+        
+        <div class="skills-category secondary-skills">
+          <h3 class="skills-category-title">Also Experienced In</h3>
+          <div class="skills-grid secondary-skills-grid">
+            <div class="skill-item secondary-skill-item animate-on-scroll">
+              <div class="skill-icon secondary-skill-icon"><i class="fas fa-cloud"></i></div>
+              <div class="skill-name">Azure Functions</div>
+            </div>
+            <div class="skill-item secondary-skill-item animate-on-scroll">
+              <div class="skill-icon secondary-skill-icon"><i class="fas fa-diagram-project"></i></div>
+              <div class="skill-name">REST API Design</div>
+            </div>
+            <div class="skill-item secondary-skill-item animate-on-scroll">
+              <div class="skill-icon secondary-skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-name">Xamarin (legacy)</div>
+            </div>
+            <div class="skill-item secondary-skill-item animate-on-scroll">
+              <div class="skill-icon secondary-skill-icon"><i class="fas fa-robot"></i></div>
+              <div class="skill-name">AI API Integrations</div>
+            </div>
+            <div class="skill-item secondary-skill-item animate-on-scroll">
+              <div class="skill-icon secondary-skill-icon"><i class="fas fa-gears"></i></div>
+              <div class="skill-name">CI/CD Pipelines</div>
+            </div>
+            <div class="skill-item secondary-skill-item animate-on-scroll">
+              <div class="skill-icon secondary-skill-icon"><i class="fas fa-layer-group"></i></div>
+              <div class="skill-name">Cross-Platform Architecture</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
-      <h2 class="section-title">Let's Work Together</h2>
+      <h2 class="section-title"><i class="fas fa-paper-plane"></i> Let's Work Together</h2>
       <div class="contact-content">
         <div class="contact-info animate-on-scroll">
           <h3>Ready to Start Your Next Project?</h3>
           <p>
-            I'm always excited to take on new challenges and help bring innovative ideas to life. Whether you need a mobile app, desktop application, or enterprise solution, let's discuss how we can make it happen.
+            If you'd like to discuss a project, app idea, or collaboration, I'd love to hear from you.
+          </p>
+          <p>
+            Email me at tim@timbarrywoods.dev or connect on LinkedIn.
           </p>
           <div class="contact-links">
             <a href="mailto:tim@timbarrywoods.dev" class="contact-link">
-              ✉ tim@timbarrywoods.dev
+              <i class="fas fa-envelope"></i> tim@timbarrywoods.dev
             </a>
             <a href="https://github.com/timbarrywoods" class="contact-link" target="_blank" rel="noopener">
-              🐙 GitHub
+              <i class="fab fa-github"></i> GitHub
             </a>
             <a href="https://linkedin.com/in/tim-barry-woods" class="contact-link" target="_blank" rel="noopener">
-              💼 LinkedIn
+              <i class="fab fa-linkedin"></i> LinkedIn
             </a>
           </div>
         </div>
