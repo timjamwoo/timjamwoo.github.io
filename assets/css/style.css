@@ -354,13 +354,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title::after {
-  content: '';
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(135deg, #2DD4BF, #0891B2);
-  display: block;
-  margin: 1rem auto;
-  border-radius: 2px;
+    content: '';
+    width: 80px; /* default for mobile */
+    height: 4px;
+    background: linear-gradient(135deg, #2DD4BF, #0891B2);
+    display: block;
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+/* Wider on desktop */
+@media (min-width: 768px) {
+    .section-title::after {
+        width: 300px; /* or whatever you want */
+    }
 }
 
 /* ===== ABOUT SECTION ===== */
