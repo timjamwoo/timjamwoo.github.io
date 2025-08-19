@@ -922,6 +922,34 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
+/* Different background colors for each service card */
+.service-card-development {
+  background: linear-gradient(135deg, #3B82F6, #1E40AF);
+  color: white;
+}
+
+.service-card-freelance {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: white;
+}
+
+.service-card-consulting {
+  background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+  color: white;
+}
+
+.service-card-development .service-title,
+.service-card-freelance .service-title,
+.service-card-consulting .service-title {
+  color: white;
+}
+
+.service-card-development .service-description,
+.service-card-freelance .service-description,
+.service-card-consulting .service-description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .service-card::before {
   content: '';
   position: absolute;
@@ -930,6 +958,13 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   height: 4px;
   background: linear-gradient(135deg, #2DD4BF, #0891B2);
+}
+
+/* Remove top border for colored service cards */
+.service-card-development::before,
+.service-card-freelance::before,
+.service-card-consulting::before {
+  display: none;
 }
 
 .service-card:hover {
@@ -948,6 +983,15 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   color: white;
   font-size: 2rem;
+}
+
+/* Icon styling for colored service cards */
+.service-card-development .service-icon,
+.service-card-freelance .service-icon,
+.service-card-consulting .service-icon {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
 }
 
 .service-title {
