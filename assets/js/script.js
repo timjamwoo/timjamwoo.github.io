@@ -97,12 +97,22 @@ function initSmoothScrolling() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                const headerOffset = -80;
                 const elementPosition = targetElement.offsetTop;
-                const offsetPosition = elementPosition - headerOffset;
+                const elementHeight = targetElement.offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                // Calculate position to center the section in the viewport
+                // If section is taller than viewport, show from the top
+                let scrollPosition;
+                if (elementHeight > windowHeight) {
+                    scrollPosition = elementPosition;
+                } else {
+                    // Center the section in the viewport
+                    scrollPosition = elementPosition - (windowHeight - elementHeight) / 2;
+                }
                 
                 window.scrollTo({
-                    top: offsetPosition,
+                    top: scrollPosition,
                     behavior: 'smooth'
                 });
             }
