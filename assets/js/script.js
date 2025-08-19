@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTypingAnimation();
     initSmoothScrolling();
     initContactForm();
+    initHeaderBar();
     
     console.log('🚀 Portfolio website loaded successfully!');
 });
@@ -296,6 +297,60 @@ function createParticleEffect() {
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(createParticleEffect, 1000);
 });
+
+// ===== HEADER BAR =====
+function initHeaderBar() {
+    const headerBar = document.getElementById('header-bar');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const headerNav = document.querySelector('.header-nav');
+    
+    if (!headerBar) return;
+    
+    let isScrolling = false;
+    
+    // Throttled scroll handler for better performance
+    const handleScroll = throttle(() => {
+        const scrollY = window.scrollY;
+        const heroHeight = window.innerHeight * 0.8; // Show header after 80% of viewport height
+        
+        if (scrollY > heroHeight) {
+            headerBar.classList.add('visible');
+        } else {
+            headerBar.classList.remove('visible');
+        }
+    }, 16); // ~60fps
+    
+    // Mobile menu toggle functionality
+    if (mobileMenuToggle && headerNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            headerNav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking nav links
+        const navLinks = headerNav.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                headerNav.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!headerBar.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                headerNav.classList.remove('active');
+            }
+        });
+    }
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial check in case user refreshes page mid-scroll
+    handleScroll();
+}
 
 // ===== PERFORMANCE OPTIMIZATION =====
 // Throttle scroll events
