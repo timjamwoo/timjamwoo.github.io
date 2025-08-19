@@ -563,6 +563,15 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2rem;
   }
   
+  .contact-links {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .contact-link {
+    font-size: 0.9rem;
+  }
+  
   .projects-grid {
     grid-template-columns: 1fr;
   }
@@ -573,10 +582,6 @@ h1, h2, h3, h4, h5, h6 {
   
   .skills-content {
     gap: 2rem;
-  }
-  
-  .footer {
-    padding: 1.5rem 1rem;
   }
 }
 
@@ -593,14 +598,29 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2rem 1rem;
   }
   
-  .contact-form {
-    padding: 1.5rem;
+  .contact-info h3 {
+    font-size: 1.3rem;
+    line-height: 1.4;
   }
   
-  .footer {
-    padding: 1rem;
-    font-size: 0.9rem;
-    line-height: 1.4;
+  .contact-info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: flex-start;
+  }
+  
+  .contact-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
   }
 }
 
