@@ -98,19 +98,10 @@ function initSmoothScrolling() {
             
             if (targetElement) {
                 const elementPosition = targetElement.offsetTop;
-                const elementHeight = targetElement.offsetHeight;
                 const windowHeight = window.innerHeight;
                 
                 // Calculate position to center the section in the viewport
-                // If section is taller than viewport, show from the top
-                let scrollPosition;
-                if (elementHeight > windowHeight) {
-                    scrollPosition = elementPosition;
-                } else {
-                    // Center the section in the viewport
-                    scrollPosition = elementPosition - (windowHeight - elementHeight) / 2;
-                }
-                
+                let scrollPosition = elementPosition + windowHeight - 40; // 80px padding from bottom
                 window.scrollTo({
                     top: scrollPosition,
                     behavior: 'smooth'
