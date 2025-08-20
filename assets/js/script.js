@@ -426,13 +426,15 @@ function initSkillsCarousel() {
     const itemTotalWidth = itemWidth + gap;
     const originalSetWidth = itemCount * itemTotalWidth;
     
-    // Set initial scroll position to start of original items (after end-clones)
-    skillsGrid.scrollLeft = originalSetWidth;
-    
     let isScrolling = false;
     let scrollSpeed = 0.5; // Slower, smoother auto-scroll
     let animationId;
     let userScrollTimeout;
+    
+    // Set initial scroll position after a small delay to ensure DOM is ready
+    setTimeout(() => {
+        skillsGrid.scrollLeft = originalSetWidth;
+    }, 50);
     
     // Auto-scroll function
     function autoScroll() {
@@ -456,8 +458,10 @@ function initSkillsCarousel() {
         animationId = requestAnimationFrame(autoScroll);
     }
     
-    // Start auto-scroll
-    autoScroll();
+    // Start auto-scroll after initial positioning
+    setTimeout(() => {
+        autoScroll();
+    }, 100);
     
     // Arrow button functionality
     function scrollLeft() {

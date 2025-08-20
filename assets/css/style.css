@@ -577,28 +577,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 10px;
 }
 
-/* Add gradient fade indicators for scrollable area */
-.skills-content::before,
-.skills-content::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 200px;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.skills-content::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(247, 250, 252, 1), rgba(247, 250, 252, 0));
-}
-
-.skills-content::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(247, 250, 252, 1), rgba(247, 250, 252, 0));
-}
+/* Removed gradient fade indicators - user feedback */
 
 .skills-category-title {
   font-size: 1.5rem;
