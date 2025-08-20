@@ -330,7 +330,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section {
   padding: 2rem 0;
-  max-width: 1200px;
+  max-width: 80%;
   margin: 0 auto;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -385,15 +385,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.8em;
 }
 
-.section-title::after {
-    content: '';
-    width: 80px; /* default for mobile */
-    height: 4px;
-    background: linear-gradient(135deg, #2DD4BF, #0891B2);
-    display: block;
-    margin: 1rem auto;
-    border-radius: 2px;
-}
+/*.section-title::after {*/
+/*    content: '';*/
+/*    width: 80px; !* default for mobile *!*/
+/*    height: 4px;*/
+/*    background: linear-gradient(135deg, #2DD4BF, #0891B2);*/
+/*    display: block;*/
+/*    margin: 1rem auto;*/
+/*    border-radius: 2px;*/
+/*}*/
 
 /* Wider on desktop */
 @media (min-width: 768px) {
