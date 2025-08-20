@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initContactForm();
     initHeaderBar();
+    initSkillsCarousel();
     
     console.log('🚀 Portfolio website loaded successfully!');
 });
@@ -379,6 +380,76 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+// ===== SKILLS CAROUSEL =====
+function initSkillsCarousel() {
+    const skillsGrid = document.querySelector('.skills-grid');
+    if (!skillsGrid) return;
+    
+    // Clone the skills for infinite scrolling
+    const skillItems = skillsGrid.querySelectorAll('.skill-item');
+    const skillsClone = [];
+    
+    // Clone each skill item
+    skillItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        skillsClone.push(clone);
+    });
+    
+    // Append clones for seamless loop
+    skillsClone.forEach(clone => {
+        skillsGrid.appendChild(clone);
+    });
+    
+    let isScrolling = false;
+    let scrollSpeed = 1; // pixels per frame
+    let animationId;
+    
+    // Auto-scroll function
+    function autoScroll() {
+        if (!isScrolling) {
+            skillsGrid.scrollLeft += scrollSpeed;
+            
+            // Reset to beginning when we've scrolled past the original items
+            const maxScroll = skillsGrid.scrollWidth / 2; // Half way point (original + clones)
+            if (skillsGrid.scrollLeft >= maxScroll) {
+                skillsGrid.scrollLeft = 0;
+            }
+        }
+        animationId = requestAnimationFrame(autoScroll);
+    }
+    
+    // Start auto-scroll
+    autoScroll();
+    
+    // Pause auto-scroll on hover
+    skillsGrid.addEventListener('mouseenter', () => {
+        isScrolling = true;
+    });
+    
+    skillsGrid.addEventListener('mouseleave', () => {
+        isScrolling = false;
+    });
+    
+    // Handle manual scrolling
+    let scrollTimeout;
+    skillsGrid.addEventListener('scroll', () => {
+        isScrolling = true;
+        clearTimeout(scrollTimeout);
+        
+        // Resume auto-scroll after user stops scrolling
+        scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+        }, 2000);
+    });
+    
+    // Clean up on page unload
+    window.addEventListener('beforeunload', () => {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+        }
+    });
 }
 
 // Add CSS for notification animation
