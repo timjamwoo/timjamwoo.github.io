@@ -1080,20 +1080,26 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  height: auto;
+  min-height: 400px;
 }
 
 .carousel-wrapper {
   display: flex;
   transition: transform 0.4s ease;
   will-change: transform;
+  height: auto;
 }
 
 .recommendation-card {
   min-width: 100%;
+  max-width: 100%;
   background: white;
   padding: 2.5rem;
   box-sizing: border-box;
   flex-shrink: 0;
+  overflow: hidden;
+  height: auto;
 }
 
 .recommendation-header {
@@ -1148,6 +1154,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .recommendation-date {
@@ -1160,10 +1168,15 @@ h1, h2, h3, h4, h5, h6 {
 .recommendation-content {
   line-height: 1.7;
   color: #4a5568;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .recommendation-content p {
   margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .recommendation-content p:last-child {
