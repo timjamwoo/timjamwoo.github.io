@@ -1080,15 +1080,15 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  height: auto;
-  min-height: 400px;
+  height: 420px;
+  position: relative;
 }
 
 .carousel-wrapper {
   display: flex;
   transition: transform 0.4s ease;
   will-change: transform;
-  height: auto;
+  height: 420px;
 }
 
 .recommendation-card {
@@ -1099,7 +1099,8 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
   flex-shrink: 0;
   overflow: hidden;
-  height: auto;
+  height: 420px;
+  overflow-y: auto;
 }
 
 .recommendation-header {
