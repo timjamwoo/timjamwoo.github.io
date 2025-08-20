@@ -648,7 +648,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding: 2rem 0;
+  padding: 2rem 0 0 0;
 }
 
 .logo-row img {
@@ -664,7 +664,10 @@ h1, h2, h3, h4, h5, h6 {
 .logo-row img:hover {
   filter: grayscale(0%);
   opacity: 1;
-  transform: translateY(-5px);
+}
+
+.logo-item-padding {
+    padding-bottom: 20px;
 }
 
 /* Responsive adjustments for logos */
