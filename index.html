@@ -21,11 +21,11 @@
       </div>
       <nav class="header-nav">
         <a href="#hero" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#projects" class="nav-link">Projects</a>
         <a href="#skills" class="nav-link">Skills</a>
+        <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
       <div class="header-social">
@@ -63,12 +63,83 @@
 
   <!-- Main Content -->
   <main class="main-content">
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+<!--      <h2 class="section-title animate-on-scroll"><i class="fas fa-code"></i> Technical Expertise</h2>-->
+      <div class="skills-content">
+        <div class="skills-category">
+<!--          <h3 class="skills-category-title">Core Skills</h3>-->
+          <div class="skills-grid">
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-code"></i></div>
+              <div class="skill-name">C#</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-name">.NET</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-mobile"></i></div>
+              <div class="skill-name">MAUI</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fab fa-windows"></i></div>
+              <div class="skill-name">WPF</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <div class="skill-name">MVVM</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+              <div class="skill-name">Azure</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+              <div class="skill-name">Git</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <div class="skill-name">SQL</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+              <div class="skill-name">Azure Functions</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-diagram-project"></i></div>
+              <div class="skill-name">REST API Design</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-name">Xamarin (legacy)</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-robot"></i></div>
+              <div class="skill-name">AI API Integrations</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-gears"></i></div>
+              <div class="skill-name">CI/CD Pipelines</div>
+            </div>
+            <div class="skill-item animate-on-scroll">
+              <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+              <div class="skill-name">Cross-Platform Architecture</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section-button">
+            <a href="#contact" class="contact-btn">Get in touch</a>
+        </div>
+      </div>
+    </section>
+      
     <!-- About Section -->
     <section class="section about" id="about">
-      <h2 class="section-title animate-on-scroll">About Me</h2>
       <div class="about-content animate-on-scroll">
         <div class="about-image">
-          <img src="assets/images/tim.jpg" alt="Tim Barry-Woods" loading="lazy">
+          <img src="assets/images/tim-nofilter.jpg" alt="Tim Barry-Woods" loading="lazy">
         </div>
         <div class="about-text">
           <p>
@@ -81,15 +152,73 @@
             <strong>Professional Focus:</strong> I excel at building scalable applications with clean architecture, specializing in MVVM patterns, real-time data processing, and API integrations. My experience spans from startup environments to enterprise-scale applications, always with a focus on delivering maintainable, high-performance solutions.
           </p>
           <p>
-            I embrace emerging AI technologies to supercharge development speed and efficiency, helping deliver high-quality solutions faster without compromising reliability. When I'm not coding, you'll find me exploring new technologies, mentoring fellow developers on platforms like <a href="https://www.codementor.io/@timbarrywoods" target="_blank" rel="noopener">Codementor</a>, or working on open-source contributions that benefit the wider development community.
+            I embrace emerging AI technologies to supercharge development speed and efficiency, helping deliver high-quality solutions faster without compromising reliability. When I’m not building software, I’m usually exploring new places, making music, or losing myself in a video game.
           </p>
         </div>
       </div>
     </section>
 
+      <!-- Services Section -->
+      <section class="section services" id="services">
+          <h2 class="section-title animate-on-scroll"><i class="fas fa-tools"></i> Services</h2>
+          <div class="services-intro animate-on-scroll">
+              <h3 class="services-subtitle">How I Can Help Your Business</h3>
+              <p class="services-description">
+                  Whether you need a full app built from scratch, expert input on a tricky project, or ongoing technical support, I can help.
+              </p>
+          </div>
+          <div class="services-grid">
+              <div class="service-card service-card-development animate-on-scroll">
+                  <div class="service-icon">
+                      <i class="fas fa-mobile-screen-button"></i>
+                  </div>
+                  <div class="service-content">
+                      <h3 class="service-title">Bespoke App Development</h3>
+                      <p class="service-description">
+                          I specialise in building custom cross-platform applications that fit your business needs perfectly. From concept to deployment, I ensure your app is reliable, scalable, and user-friendly.
+                      </p>
+                  </div>
+              </div>
+
+              <div class="service-card service-card-freelance animate-on-scroll">
+                  <div class="service-icon">
+                      <i class="fas fa-users"></i>
+                  </div>
+                  <div class="service-content">
+                      <h3 class="service-title">Freelance Development Support</h3>
+                      <p class="service-description">
+                          Need an extra pair of experienced hands? I can join your team on a freelance basis, helping deliver high-quality code, improve architecture, or tackle those features that keep getting pushed back.
+                      </p>
+                  </div>
+              </div>
+
+              <div class="service-card service-card-consulting animate-on-scroll">
+                  <div class="service-icon">
+                      <i class="fas fa-lightbulb"></i>
+                  </div>
+                  <div class="service-content">
+                      <h3 class="service-title">Consulting & Technical Guidance</h3>
+                      <p class="service-description">
+                          I offer consulting sessions to help you make the right technical decisions — whether that's choosing the right stack, optimising performance, or planning an app migration.
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="section-button">
+              <a href="#contact" class="contact-btn">Get in touch</a>
+          </div>
+      </section>
+
     <!-- Experience Section -->
     <section class="section experience" id="experience">
       <h2 class="section-title animate-on-scroll"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+      <div class="services-intro animate-on-scroll">
+        <p class="services-description">
+            Here's a quick overview of my professional journey and what I'm up to today. For a more detailed breakdown, check out my <a href="https://www.linkedin.com/in/tim-barry-woods" target="_blank" rel="noopener">LinkedIn profile</a>.
+        </p>
+      </div>
+        <script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/tim-barry-woods"></script>
       <div class="experience-content">
         <div class="experience-item animate-on-scroll">
           <h3 class="experience-title">Senior .NET Developer & Consultant</h3>
@@ -126,57 +255,14 @@
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section services" id="services">
-      <h2 class="section-title animate-on-scroll"><i class="fas fa-tools"></i> Services</h2>
-      <div class="services-intro animate-on-scroll">
-        <h3 class="services-subtitle">How I Can Help</h3>
-        <p class="services-description">
-          I work with businesses and individuals to turn complex ideas into elegant, user-focused software. Whether you need a full app built from scratch, expert input on a tricky project, or ongoing technical support, I can help.
-        </p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card service-card-development animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-mobile-screen-button"></i>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Bespoke App Development</h3>
-            <p class="service-description">
-              I specialise in building custom cross-platform applications that fit your business needs perfectly. From concept to deployment, I ensure your app is reliable, scalable, and user-friendly.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-card service-card-freelance animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Freelance Development Support</h3>
-            <p class="service-description">
-              Need an extra pair of experienced hands? I can join your team on a freelance basis, helping deliver high-quality code, improve architecture, or tackle those features that keep getting pushed back.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-card service-card-consulting animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-lightbulb"></i>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Consulting & Technical Guidance</h3>
-            <p class="service-description">
-              I offer consulting sessions to help you make the right technical decisions — whether that's choosing the right stack, optimising performance, or planning an app migration. Think of it as having a senior architect on call.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Projects Section -->
     <section class="section projects" id="projects">
       <h2 class="section-title animate-on-scroll"><i class="fas fa-folder-open"></i> Featured Projects</h2>
+        <div class="services-intro animate-on-scroll">
+            <p class="services-description">
+                Check out a few of my recent projects.
+            </p>
+        </div>
       <div class="projects-grid">
         <div class="project-card animate-on-scroll">
           <div class="project-image">
@@ -229,77 +315,6 @@
               <span class="tech-tag">Real-time</span>
             </div>
             <a href="#" class="project-link">View Project →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section skills" id="skills">
-      <h2 class="section-title animate-on-scroll"><i class="fas fa-code"></i> Technical Expertise</h2>
-      <div class="skills-content">
-        <div class="skills-category">
-          <h3 class="skills-category-title">Core Skills</h3>
-          <div class="skills-grid">
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">C#</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">.NET MAUI</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">WPF</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-code"></i></div>
-              <div class="skill-name">MVVM</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-              <div class="skill-name">Azure</div>
-            </div>
-
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-              <div class="skill-name">Git</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-database"></i></div>
-              <div class="skill-name">SQL</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skills-category secondary-skills">
-          <h3 class="skills-category-title">Also Experienced In</h3>
-          <div class="skills-grid secondary-skills-grid">
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-cloud"></i></div>
-              <div class="skill-name">Azure Functions</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-diagram-project"></i></div>
-              <div class="skill-name">REST API Design</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">Xamarin (legacy)</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-robot"></i></div>
-              <div class="skill-name">AI API Integrations</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-gears"></i></div>
-              <div class="skill-name">CI/CD Pipelines</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-layer-group"></i></div>
-              <div class="skill-name">Cross-Platform Architecture</div>
-            </div>
           </div>
         </div>
       </div>

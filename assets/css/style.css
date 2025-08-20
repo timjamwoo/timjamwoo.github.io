@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .typing-text {
   display: inline-block;
-  min-height: 1.8rem; /* Ensures consistent height even when empty */
+  min-height: 1.7rem; /* Ensures consistent height even when empty */
   line-height: 1.2;
 }
 
@@ -261,7 +261,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== HERO SECTION ===== */
 .hero {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -329,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 2rem 0;
   max-width: 1200px;
   margin: 0 auto;
   padding-left: 2rem;
@@ -346,6 +346,38 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+}
+
+.section-button {
+    text-align: center;
+    color: #2d3748;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.contact-btn{
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #2DD4BF, #0891B2);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease 1s both;
+    margin-top: 1rem;
+}
+
+.contact-btn:hover {
+    background: linear-gradient(135deg, rgba(45, 212, 191, 0.85), rgba(8, 145, 178, 0.85));
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .section-title i {
@@ -371,12 +403,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ===== ABOUT SECTION ===== */
+.about {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+}
+
 .about-content {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 3rem;
   align-items: center;
-  margin-top: 2rem;
 }
 
 .about-image {
@@ -385,7 +420,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-image img {
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -497,8 +532,7 @@ h1, h2, h3, h4, h5, h6 {
 .skills-content {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  margin-top: 2rem;
+  gap: 2rem;
 }
 
 .skills-category-title {
@@ -518,7 +552,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .skill-item {
   text-align: center;
-  padding: 1.5rem;
+  padding: 1rem;
   background: white;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -888,7 +922,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== SERVICES SECTION ===== */
 .services {
-  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
 }
 
 .services-intro {

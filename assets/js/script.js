@@ -101,7 +101,7 @@ function initSmoothScrolling() {
                 const windowHeight = window.innerHeight;
                 
                 // Calculate position to center the section in the viewport
-                let scrollPosition = elementPosition + windowHeight - 40; // 80px padding from bottom
+                let scrollPosition = targetId === "#hero" ? elementPosition : elementPosition + (windowHeight/2) + 180;
                 window.scrollTo({
                     top: scrollPosition,
                     behavior: 'smooth'
