@@ -631,7 +631,6 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== PORTFOLIO LOGOS SECTION ===== */
 .portfolio-logos {
   text-align: center;
-  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
 }
 
 .logos-description {
