@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initContactForm();
     initHeaderBar();
+    initRecommendationsCarousel();
     
     console.log('🚀 Portfolio website loaded successfully!');
 });
@@ -379,6 +380,125 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+// ===== RECOMMENDATIONS CAROUSEL =====
+function initRecommendationsCarousel() {
+    const carousel = document.querySelector('.carousel-wrapper');
+    const cards = document.querySelectorAll('.recommendation-card');
+    const prevBtn = document.querySelector('.carousel-btn-prev');
+    const nextBtn = document.querySelector('.carousel-btn-next');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    if (!carousel || !cards.length) return;
+    
+    let currentIndex = 0;
+    const totalCards = cards.length;
+    
+    function updateCarousel() {
+        const translateX = -(currentIndex * 100);
+        carousel.style.transform = `translateX(${translateX}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+        
+        // Update button states
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === totalCards - 1;
+    }
+    
+    function goToSlide(index) {
+        currentIndex = Math.max(0, Math.min(index, totalCards - 1));
+        updateCarousel();
+    }
+    
+    // Previous button
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            goToSlide(currentIndex - 1);
+        }
+    });
+    
+    // Next button
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < totalCards - 1) {
+            goToSlide(currentIndex + 1);
+        }
+    });
+    
+    // Indicators
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && currentIndex > 0) {
+            goToSlide(currentIndex - 1);
+        } else if (e.key === 'ArrowRight' && currentIndex < totalCards - 1) {
+            goToSlide(currentIndex + 1);
+        }
+    });
+    
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0 && currentIndex < totalCards - 1) {
+                // Swipe left - go to next
+                goToSlide(currentIndex + 1);
+            } else if (diff < 0 && currentIndex > 0) {
+                // Swipe right - go to previous
+                goToSlide(currentIndex - 1);
+            }
+        }
+    }
+    
+    // Auto-advance carousel (optional)
+    let autoAdvanceInterval;
+    
+    function startAutoAdvance() {
+        autoAdvanceInterval = setInterval(() => {
+            if (currentIndex < totalCards - 1) {
+                goToSlide(currentIndex + 1);
+            } else {
+                goToSlide(0); // Loop back to first
+            }
+        }, 8000); // Change slide every 8 seconds
+    }
+    
+    function stopAutoAdvance() {
+        clearInterval(autoAdvanceInterval);
+    }
+    
+    // Pause auto-advance on hover
+    const carouselContainer = document.querySelector('.recommendations-carousel');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoAdvance);
+        carouselContainer.addEventListener('mouseleave', startAutoAdvance);
+    }
+    
+    // Initialize
+    updateCarousel();
+    startAutoAdvance();
 }
 
 // Add CSS for notification animation
