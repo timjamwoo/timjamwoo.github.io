@@ -536,6 +536,47 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
+/* Skills carousel container with arrow indicators */
+.skills-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scroll arrow indicators */
+.skills-scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(45, 212, 191, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.skills-scroll-arrow:hover {
+  opacity: 1;
+  background: rgba(45, 212, 191, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.skills-scroll-arrow.left {
+  left: 10px;
+}
+
+.skills-scroll-arrow.right {
+  right: 10px;
+}
+
 /* Add gradient fade indicators for scrollable area */
 .skills-content::before,
 .skills-content::after {
@@ -543,7 +584,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 30px;
+  width: 60px;
   height: 200px;
   pointer-events: none;
   z-index: 2;
@@ -570,10 +611,15 @@ h1, h2, h3, h4, h5, h6 {
 .skills-grid {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden; /* Prevent vertical scrolling */
   scroll-behavior: smooth;
   gap: 1.5rem;
   margin-top: 1rem;
   padding: 1rem 0;
+  /* Prevent vertical scrolling interference */
+  touch-action: pan-x; /* Only allow horizontal panning on touch devices */
+  overscroll-behavior-x: contain; /* Contain horizontal scroll */
+  overscroll-behavior-y: none; /* Prevent vertical scroll chaining */
   /* Hide scrollbar but keep functionality */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */

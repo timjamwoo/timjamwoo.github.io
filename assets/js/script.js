@@ -386,36 +386,71 @@ function debounce(func, wait) {
 // ===== SKILLS CAROUSEL =====
 function initSkillsCarousel() {
     const skillsGrid = document.querySelector('.skills-grid');
-    if (!skillsGrid) return;
+    const leftArrow = document.querySelector('.skills-scroll-arrow.left');
+    const rightArrow = document.querySelector('.skills-scroll-arrow.right');
     
-    // Clone the skills for infinite scrolling
-    const skillItems = skillsGrid.querySelectorAll('.skill-item');
-    const skillsClone = [];
+    if (!skillsGrid || !leftArrow || !rightArrow) return;
     
-    // Clone each skill item
-    skillItems.forEach(item => {
+    // Get all original skill items
+    const originalSkillItems = Array.from(skillsGrid.querySelectorAll('.skill-item'));
+    const itemCount = originalSkillItems.length;
+    
+    if (itemCount === 0) return;
+    
+    // Clear the grid and rebuild with proper infinite scroll structure
+    skillsGrid.innerHTML = '';
+    
+    // Create three sets: clone-end + original + clone-start for seamless infinite scroll
+    // Clone for beginning (when scrolling left from start)
+    const startClones = originalSkillItems.map(item => {
         const clone = item.cloneNode(true);
-        skillsClone.push(clone);
+        clone.classList.add('skill-clone', 'start-clone');
+        return clone;
     });
     
-    // Append clones for seamless loop
-    skillsClone.forEach(clone => {
-        skillsGrid.appendChild(clone);
+    // Clone for end (when scrolling right past end)
+    const endClones = originalSkillItems.map(item => {
+        const clone = item.cloneNode(true);
+        clone.classList.add('skill-clone', 'end-clone');
+        return clone;
     });
+    
+    // Append in order: end-clones + originals + start-clones
+    endClones.forEach(clone => skillsGrid.appendChild(clone));
+    originalSkillItems.forEach(item => skillsGrid.appendChild(item));
+    startClones.forEach(clone => skillsGrid.appendChild(clone));
+    
+    // Calculate widths
+    const itemWidth = 140; // From CSS: flex: 0 0 140px
+    const gap = 24; // From CSS: gap: 1.5rem = 24px
+    const itemTotalWidth = itemWidth + gap;
+    const originalSetWidth = itemCount * itemTotalWidth;
+    
+    // Set initial scroll position to start of original items (after end-clones)
+    skillsGrid.scrollLeft = originalSetWidth;
     
     let isScrolling = false;
-    let scrollSpeed = 1; // pixels per frame
+    let scrollSpeed = 0.5; // Slower, smoother auto-scroll
     let animationId;
+    let userScrollTimeout;
     
     // Auto-scroll function
     function autoScroll() {
         if (!isScrolling) {
             skillsGrid.scrollLeft += scrollSpeed;
             
-            // Reset to beginning when we've scrolled past the original items
-            const maxScroll = skillsGrid.scrollWidth / 2; // Half way point (original + clones)
+            // Check for infinite loop reset points
+            const maxScroll = originalSetWidth * 2; // After start-clones
+            const minScroll = 0; // Before end-clones end
+            
             if (skillsGrid.scrollLeft >= maxScroll) {
-                skillsGrid.scrollLeft = 0;
+                // We've scrolled past the original items into start-clones
+                // Reset to beginning of original items
+                skillsGrid.scrollLeft = originalSetWidth;
+            } else if (skillsGrid.scrollLeft <= minScroll) {
+                // We've scrolled before the end-clones
+                // Reset to end of original items
+                skillsGrid.scrollLeft = originalSetWidth;
             }
         }
         animationId = requestAnimationFrame(autoScroll);
@@ -424,25 +459,93 @@ function initSkillsCarousel() {
     // Start auto-scroll
     autoScroll();
     
+    // Arrow button functionality
+    function scrollLeft() {
+        skillsGrid.scrollBy({
+            left: -itemTotalWidth * 3, // Scroll 3 items at a time
+            behavior: 'smooth'
+        });
+        handleUserInteraction();
+    }
+    
+    function scrollRight() {
+        skillsGrid.scrollBy({
+            left: itemTotalWidth * 3, // Scroll 3 items at a time
+            behavior: 'smooth'
+        });
+        handleUserInteraction();
+    }
+    
+    function handleUserInteraction() {
+        isScrolling = true;
+        clearTimeout(userScrollTimeout);
+        
+        // Resume auto-scroll after user stops interacting
+        userScrollTimeout = setTimeout(() => {
+            isScrolling = false;
+        }, 3000); // Longer pause for manual interaction
+    }
+    
+    // Event listeners for arrows
+    leftArrow.addEventListener('click', scrollLeft);
+    rightArrow.addEventListener('click', scrollRight);
+    
     // Pause auto-scroll on hover
     skillsGrid.addEventListener('mouseenter', () => {
         isScrolling = true;
     });
     
     skillsGrid.addEventListener('mouseleave', () => {
-        isScrolling = false;
+        // Only resume if not in user interaction timeout
+        if (!userScrollTimeout) {
+            isScrolling = false;
+        }
     });
     
-    // Handle manual scrolling
-    let scrollTimeout;
+    // Handle manual scrolling (mouse wheel, touch, etc.)
     skillsGrid.addEventListener('scroll', () => {
-        isScrolling = true;
-        clearTimeout(scrollTimeout);
+        handleUserInteraction();
         
-        // Resume auto-scroll after user stops scrolling
-        scrollTimeout = setTimeout(() => {
-            isScrolling = false;
-        }, 2000);
+        // Handle infinite scroll position corrections without animation
+        const currentScroll = skillsGrid.scrollLeft;
+        const maxScroll = originalSetWidth * 2; 
+        const minScroll = 0;
+        
+        // Use a small timeout to avoid interfering with smooth scrolling
+        setTimeout(() => {
+            if (currentScroll >= maxScroll - 1) {
+                skillsGrid.scrollLeft = originalSetWidth;
+            } else if (currentScroll <= minScroll + 1) {
+                skillsGrid.scrollLeft = originalSetWidth;
+            }
+        }, 50);
+    });
+    
+    // Arrow visibility based on scroll position
+    function updateArrowVisibility() {
+        const scrollLeft = skillsGrid.scrollLeft;
+        const maxScroll = skillsGrid.scrollWidth - skillsGrid.clientWidth;
+        
+        // Always show both arrows since we have infinite scroll
+        leftArrow.style.opacity = '0.7';
+        rightArrow.style.opacity = '0.7';
+    }
+    
+    // Update arrow visibility on scroll
+    skillsGrid.addEventListener('scroll', updateArrowVisibility);
+    updateArrowVisibility(); // Initial call
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.target.closest('.skills-grid')) {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                scrollLeft();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                scrollRight();
+            }
+        }
     });
     
     // Clean up on page unload
@@ -450,6 +553,7 @@ function initSkillsCarousel() {
         if (animationId) {
             cancelAnimationFrame(animationId);
         }
+        clearTimeout(userScrollTimeout);
     });
 }
 
