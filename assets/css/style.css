@@ -628,6 +628,71 @@ h1, h2, h3, h4, h5, h6 {
   color: #475569;
 }
 
+/* ===== PORTFOLIO LOGOS SECTION ===== */
+.portfolio-logos {
+  text-align: center;
+}
+
+.logos-description {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0 0 0;
+}
+
+.logo-row img {
+  height: 60px;
+  max-width: 200px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 5px;
+}
+
+.logo-row img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.logo-item-padding {
+    padding-bottom: 20px;
+}
+
+/* Responsive adjustments for logos */
+@media (max-width: 768px) {
+  .logo-row {
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  
+  .logo-row img {
+    height: 50px;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-row {
+    gap: 1rem;
+  }
+  
+  .logo-row img {
+    height: 40px;
+    max-width: 120px;
+  }
+}
+
 /* ===== CONTACT SECTION ===== */
 .contact {
   background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
