@@ -19,13 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== SCROLL ANIMATIONS =====
+let globalObserver; // Make observer accessible globally
+
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
     
-    const observer = new IntersectionObserver(function(entries) {
+    globalObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -36,8 +38,15 @@ function initScrollAnimations() {
     // Observe all elements with animate-on-scroll class
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(element => {
-        observer.observe(element);
+        globalObserver.observe(element);
     });
+}
+
+// Helper function to observe new elements (for dynamically created content)
+function observeElement(element) {
+    if (globalObserver && element.classList.contains('animate-on-scroll')) {
+        globalObserver.observe(element);
+    }
 }
 
 // ===== TYPING ANIMATION =====
@@ -405,6 +414,8 @@ function initSkillsCarousel() {
     const startClones = originalSkillItems.map(item => {
         const clone = item.cloneNode(true);
         clone.classList.add('skill-clone', 'start-clone');
+        // Observe the clone for animations
+        observeElement(clone);
         return clone;
     });
     
@@ -412,12 +423,18 @@ function initSkillsCarousel() {
     const endClones = originalSkillItems.map(item => {
         const clone = item.cloneNode(true);
         clone.classList.add('skill-clone', 'end-clone');
+        // Observe the clone for animations
+        observeElement(clone);
         return clone;
     });
     
     // Append in order: end-clones + originals + start-clones
     endClones.forEach(clone => skillsGrid.appendChild(clone));
-    originalSkillItems.forEach(item => skillsGrid.appendChild(item));
+    originalSkillItems.forEach(item => {
+        skillsGrid.appendChild(item);
+        // Re-observe original items in case they were removed from DOM
+        observeElement(item);
+    });
     startClones.forEach(clone => skillsGrid.appendChild(clone));
     
     // Calculate widths
@@ -430,15 +447,32 @@ function initSkillsCarousel() {
     let scrollSpeed = 0.5; // Slower, smoother auto-scroll
     let animationId;
     let userScrollTimeout;
+    let isInitialized = false;
     
-    // Set initial scroll position after a small delay to ensure DOM is ready
-    setTimeout(() => {
-        skillsGrid.scrollLeft = originalSetWidth;
-    }, 50);
+    // Set initial scroll position after DOM is fully ready
+    function setInitialPosition() {
+        if (!isInitialized) {
+            skillsGrid.scrollLeft = originalSetWidth;
+            isInitialized = true;
+            console.log('Skills carousel initialized with scroll position:', originalSetWidth);
+            
+            // Start auto-scroll after initial positioning
+            setTimeout(() => {
+                console.log('Starting skills carousel autoscroll');
+                autoScroll();
+            }, 500); // Give more time for DOM to settle
+        }
+    }
+    
+    // Use multiple timing methods to ensure initialization
+    setTimeout(setInitialPosition, 100);
+    requestAnimationFrame(() => {
+        setTimeout(setInitialPosition, 200);
+    });
     
     // Auto-scroll function
     function autoScroll() {
-        if (!isScrolling) {
+        if (!isScrolling && isInitialized) {
             skillsGrid.scrollLeft += scrollSpeed;
             
             // Check for infinite loop reset points
@@ -457,11 +491,6 @@ function initSkillsCarousel() {
         }
         animationId = requestAnimationFrame(autoScroll);
     }
-    
-    // Start auto-scroll after initial positioning
-    setTimeout(() => {
-        autoScroll();
-    }, 100);
     
     // Arrow button functionality
     function scrollLeft() {
@@ -487,6 +516,7 @@ function initSkillsCarousel() {
         // Resume auto-scroll after user stops interacting
         userScrollTimeout = setTimeout(() => {
             isScrolling = false;
+            console.log('Resuming autoscroll after user interaction');
         }, 3000); // Longer pause for manual interaction
     }
     
@@ -497,12 +527,14 @@ function initSkillsCarousel() {
     // Pause auto-scroll on hover
     skillsGrid.addEventListener('mouseenter', () => {
         isScrolling = true;
+        console.log('Autoscroll paused on hover');
     });
     
     skillsGrid.addEventListener('mouseleave', () => {
         // Only resume if not in user interaction timeout
         if (!userScrollTimeout) {
             isScrolling = false;
+            console.log('Autoscroll resumed after hover');
         }
     });
     
