@@ -12,19 +12,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initContactForm();
     initHeaderBar();
+    initSkillsCarousel();
     initRecommendationsCarousel();
     
     console.log('🚀 Portfolio website loaded successfully!');
 });
 
 // ===== SCROLL ANIMATIONS =====
+let globalObserver; // Make observer accessible globally
+
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
     
-    const observer = new IntersectionObserver(function(entries) {
+    globalObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -35,8 +38,15 @@ function initScrollAnimations() {
     // Observe all elements with animate-on-scroll class
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(element => {
-        observer.observe(element);
+        globalObserver.observe(element);
     });
+}
+
+// Helper function to observe new elements (for dynamically created content)
+function observeElement(element) {
+    if (globalObserver && element.classList.contains('animate-on-scroll')) {
+        globalObserver.observe(element);
+    }
 }
 
 // ===== TYPING ANIMATION =====
@@ -380,6 +390,207 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+// ===== SKILLS CAROUSEL =====
+function initSkillsCarousel() {
+    const skillsGrid = document.querySelector('.skills-grid');
+    const leftArrow = document.querySelector('.skills-scroll-arrow.left');
+    const rightArrow = document.querySelector('.skills-scroll-arrow.right');
+    
+    if (!skillsGrid || !leftArrow || !rightArrow) return;
+    
+    // Get all original skill items
+    const originalSkillItems = Array.from(skillsGrid.querySelectorAll('.skill-item'));
+    const itemCount = originalSkillItems.length;
+    
+    if (itemCount === 0) return;
+    
+    // Clear the grid and rebuild with proper infinite scroll structure
+    skillsGrid.innerHTML = '';
+    
+    // Create three sets: clone-end + original + clone-start for seamless infinite scroll
+    // Clone for beginning (when scrolling left from start)
+    const startClones = originalSkillItems.map(item => {
+        const clone = item.cloneNode(true);
+        clone.classList.add('skill-clone', 'start-clone');
+        // Observe the clone for animations
+        observeElement(clone);
+        return clone;
+    });
+    
+    // Clone for end (when scrolling right past end)
+    const endClones = originalSkillItems.map(item => {
+        const clone = item.cloneNode(true);
+        clone.classList.add('skill-clone', 'end-clone');
+        // Observe the clone for animations
+        observeElement(clone);
+        return clone;
+    });
+    
+    // Append in order: end-clones + originals + start-clones
+    endClones.forEach(clone => skillsGrid.appendChild(clone));
+    originalSkillItems.forEach(item => {
+        skillsGrid.appendChild(item);
+        // Re-observe original items in case they were removed from DOM
+        observeElement(item);
+    });
+    startClones.forEach(clone => skillsGrid.appendChild(clone));
+    
+    // Calculate widths
+    const itemWidth = 140; // From CSS: flex: 0 0 140px
+    const gap = 24; // From CSS: gap: 1.5rem = 24px
+    const itemTotalWidth = itemWidth + gap;
+    const originalSetWidth = itemCount * itemTotalWidth;
+    
+    let isScrolling = false;
+    let scrollSpeed = 0.5; // Slower, smoother auto-scroll
+    let animationId;
+    let userScrollTimeout;
+    let isInitialized = false;
+    
+    // Set initial scroll position after DOM is fully ready
+    function setInitialPosition() {
+        if (!isInitialized) {
+            skillsGrid.scrollLeft = originalSetWidth;
+            isInitialized = true;
+            console.log('Skills carousel initialized with scroll position:', originalSetWidth);
+            
+            // Start auto-scroll after initial positioning
+            setTimeout(() => {
+                console.log('Starting skills carousel autoscroll');
+                autoScroll();
+            }, 500); // Give more time for DOM to settle
+        }
+    }
+    
+    // Use multiple timing methods to ensure initialization
+    setTimeout(setInitialPosition, 100);
+    requestAnimationFrame(() => {
+        setTimeout(setInitialPosition, 200);
+    });
+    
+    // Auto-scroll function
+    function autoScroll() {
+        if (!isScrolling && isInitialized) {
+            skillsGrid.scrollLeft += scrollSpeed;
+            
+            // Check for infinite loop reset points
+            const maxScroll = originalSetWidth * 2; // After start-clones
+            const minScroll = 0; // Before end-clones end
+            
+            if (skillsGrid.scrollLeft >= maxScroll) {
+                // We've scrolled past the original items into start-clones
+                // Reset to beginning of original items
+                skillsGrid.scrollLeft = originalSetWidth;
+            } else if (skillsGrid.scrollLeft <= minScroll) {
+                // We've scrolled before the end-clones
+                // Reset to end of original items
+                skillsGrid.scrollLeft = originalSetWidth;
+            }
+        }
+        animationId = requestAnimationFrame(autoScroll);
+    }
+    
+    // Arrow button functionality
+    function scrollLeft() {
+        skillsGrid.scrollBy({
+            left: -itemTotalWidth * 3, // Scroll 3 items at a time
+            behavior: 'smooth'
+        });
+        handleUserInteraction();
+    }
+    
+    function scrollRight() {
+        skillsGrid.scrollBy({
+            left: itemTotalWidth * 3, // Scroll 3 items at a time
+            behavior: 'smooth'
+        });
+        handleUserInteraction();
+    }
+    
+    function handleUserInteraction() {
+        isScrolling = true;
+        clearTimeout(userScrollTimeout);
+        
+        // Resume auto-scroll after user stops interacting
+        userScrollTimeout = setTimeout(() => {
+            isScrolling = false;
+            console.log('Resuming autoscroll after user interaction');
+        }, 3000); // Longer pause for manual interaction
+    }
+    
+    // Event listeners for arrows
+    leftArrow.addEventListener('click', scrollLeft);
+    rightArrow.addEventListener('click', scrollRight);
+    
+    // Pause auto-scroll on hover
+    skillsGrid.addEventListener('mouseenter', () => {
+        isScrolling = true;
+        console.log('Autoscroll paused on hover');
+    });
+    
+    skillsGrid.addEventListener('mouseleave', () => {
+        // Only resume if not in user interaction timeout
+        if (!userScrollTimeout) {
+            isScrolling = false;
+            console.log('Autoscroll resumed after hover');
+        }
+    });
+    
+    // Handle manual scrolling (mouse wheel, touch, etc.)
+    skillsGrid.addEventListener('scroll', () => {
+        handleUserInteraction();
+        
+        // Handle infinite scroll position corrections without animation
+        const currentScroll = skillsGrid.scrollLeft;
+        const maxScroll = originalSetWidth * 2; 
+        const minScroll = 0;
+        
+        // Use a small timeout to avoid interfering with smooth scrolling
+        setTimeout(() => {
+            if (currentScroll >= maxScroll - 1) {
+                skillsGrid.scrollLeft = originalSetWidth;
+            } else if (currentScroll <= minScroll + 1) {
+                skillsGrid.scrollLeft = originalSetWidth;
+            }
+        }, 50);
+    });
+    
+    // Arrow visibility based on scroll position
+    function updateArrowVisibility() {
+        const scrollLeft = skillsGrid.scrollLeft;
+        const maxScroll = skillsGrid.scrollWidth - skillsGrid.clientWidth;
+        
+        // Always show both arrows since we have infinite scroll
+        leftArrow.style.opacity = '0.7';
+        rightArrow.style.opacity = '0.7';
+    }
+    
+    // Update arrow visibility on scroll
+    skillsGrid.addEventListener('scroll', updateArrowVisibility);
+    updateArrowVisibility(); // Initial call
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.target.closest('.skills-grid')) {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                scrollLeft();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                scrollRight();
+            }
+        }
+    });
+    
+    // Clean up on page unload
+    window.addEventListener('beforeunload', () => {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+        }
+        clearTimeout(userScrollTimeout);
+    });
 }
 
 // ===== RECOMMENDATIONS CAROUSEL =====
