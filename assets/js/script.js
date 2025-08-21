@@ -317,9 +317,7 @@ function initHeaderBar() {
     const headerNav = document.querySelector('.header-nav');
     
     if (!headerBar) return;
-    
-    let isScrolling = false;
-    
+        
     // Throttled scroll handler for better performance
     const handleScroll = throttle(() => {
         const scrollY = window.scrollY;
@@ -438,67 +436,19 @@ function initSkillsCarousel() {
     startClones.forEach(clone => skillsGrid.appendChild(clone));
     
     // Calculate widths
-    const itemWidth = 140; // From CSS: flex: 0 0 140px
+    const itemWidth = 100; // From CSS: flex: 0 0 140px
     const gap = 24; // From CSS: gap: 1.5rem = 24px
     const itemTotalWidth = itemWidth + gap;
     const originalSetWidth = itemCount * itemTotalWidth;
     
-    let isScrolling = false;
-    let scrollSpeed = 0.5; // Slower, smoother auto-scroll
     let animationId;
-    let userScrollTimeout;
-    let isInitialized = false;
-    
-    // Set initial scroll position after DOM is fully ready
-    function setInitialPosition() {
-        if (!isInitialized) {
-            skillsGrid.scrollLeft = originalSetWidth;
-            isInitialized = true;
-            console.log('Skills carousel initialized with scroll position:', originalSetWidth);
-            
-            // Start auto-scroll after initial positioning
-            setTimeout(() => {
-                console.log('Starting skills carousel autoscroll');
-                autoScroll();
-            }, 500); // Give more time for DOM to settle
-        }
-    }
-    
-    // Use multiple timing methods to ensure initialization
-    setTimeout(setInitialPosition, 100);
-    requestAnimationFrame(() => {
-        setTimeout(setInitialPosition, 200);
-    });
-    
-    // Auto-scroll function
-    function autoScroll() {
-        if (!isScrolling && isInitialized) {
-            skillsGrid.scrollLeft += scrollSpeed;
-            
-            // Check for infinite loop reset points
-            const maxScroll = originalSetWidth * 2; // After start-clones
-            const minScroll = 0; // Before end-clones end
-            
-            if (skillsGrid.scrollLeft >= maxScroll) {
-                // We've scrolled past the original items into start-clones
-                // Reset to beginning of original items
-                skillsGrid.scrollLeft = originalSetWidth;
-            } else if (skillsGrid.scrollLeft <= minScroll) {
-                // We've scrolled before the end-clones
-                // Reset to end of original items
-                skillsGrid.scrollLeft = originalSetWidth;
-            }
-        }
-        animationId = requestAnimationFrame(autoScroll);
-    }
-    
+        
     // Arrow button functionality
     function scrollLeft() {
         skillsGrid.scrollBy({
             left: -itemTotalWidth * 3, // Scroll 3 items at a time
             behavior: 'smooth'
         });
-        handleUserInteraction();
     }
     
     function scrollRight() {
@@ -506,42 +456,14 @@ function initSkillsCarousel() {
             left: itemTotalWidth * 3, // Scroll 3 items at a time
             behavior: 'smooth'
         });
-        handleUserInteraction();
     }
-    
-    function handleUserInteraction() {
-        isScrolling = true;
-        clearTimeout(userScrollTimeout);
         
-        // Resume auto-scroll after user stops interacting
-        userScrollTimeout = setTimeout(() => {
-            isScrolling = false;
-            console.log('Resuming autoscroll after user interaction');
-        }, 3000); // Longer pause for manual interaction
-    }
-    
     // Event listeners for arrows
     leftArrow.addEventListener('click', scrollLeft);
     rightArrow.addEventListener('click', scrollRight);
-    
-    // Pause auto-scroll on hover
-    skillsGrid.addEventListener('mouseenter', () => {
-        isScrolling = true;
-        console.log('Autoscroll paused on hover');
-    });
-    
-    skillsGrid.addEventListener('mouseleave', () => {
-        // Only resume if not in user interaction timeout
-        if (!userScrollTimeout) {
-            isScrolling = false;
-            console.log('Autoscroll resumed after hover');
-        }
-    });
-    
+        
     // Handle manual scrolling (mouse wheel, touch, etc.)
     skillsGrid.addEventListener('scroll', () => {
-        handleUserInteraction();
-        
         // Handle infinite scroll position corrections without animation
         const currentScroll = skillsGrid.scrollLeft;
         const maxScroll = originalSetWidth * 2; 
@@ -559,9 +481,6 @@ function initSkillsCarousel() {
     
     // Arrow visibility based on scroll position
     function updateArrowVisibility() {
-        const scrollLeft = skillsGrid.scrollLeft;
-        const maxScroll = skillsGrid.scrollWidth - skillsGrid.clientWidth;
-        
         // Always show both arrows since we have infinite scroll
         leftArrow.style.opacity = '0.7';
         rightArrow.style.opacity = '0.7';
@@ -589,7 +508,6 @@ function initSkillsCarousel() {
         if (animationId) {
             cancelAnimationFrame(animationId);
         }
-        clearTimeout(userScrollTimeout);
     });
 }
 
@@ -682,34 +600,6 @@ function initRecommendationsCarousel() {
             }
         }
     }
-    
-    // Auto-advance carousel (optional)
-    let autoAdvanceInterval;
-    
-    function startAutoAdvance() {
-        autoAdvanceInterval = setInterval(() => {
-            if (currentIndex < totalCards - 1) {
-                goToSlide(currentIndex + 1);
-            } else {
-                goToSlide(0); // Loop back to first
-            }
-        }, 8000); // Change slide every 8 seconds
-    }
-    
-    function stopAutoAdvance() {
-        clearInterval(autoAdvanceInterval);
-    }
-    
-    // Pause auto-advance on hover
-    const carouselContainer = document.querySelector('.recommendations-carousel');
-    if (carouselContainer) {
-        carouselContainer.addEventListener('mouseenter', stopAutoAdvance);
-        carouselContainer.addEventListener('mouseleave', startAutoAdvance);
-    }
-    
-    // Initialize
-    updateCarousel();
-    startAutoAdvance();
 }
 
 // Add CSS for notification animation
