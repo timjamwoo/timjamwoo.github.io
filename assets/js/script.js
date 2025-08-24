@@ -147,17 +147,36 @@ function initContactForm() {
             return;
         }
         
-        // Create mailto link with form data
-        const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        const mailtoLink = `mailto:tim@timbarrywoods.dev?subject=${subject}&body=${body}`;
+        // Show loading notification
+        showNotification('Sending your message...', 'info');
         
-        // Open email client
-        window.location.href = mailtoLink;
-        
-        // Show success message and reset form
-        showNotification('Opening your email client...', 'success');
-        contactForm.reset();
+        // Submit form directly using fetch
+        fetch(contactForm.action, {
+            method: contactForm.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                // Success
+                showNotification('Thank you! Your message has been sent successfully.', 'success');
+                contactForm.reset();
+            } else {
+                // Error from server
+                return response.json().then(data => {
+                    if (data.errors) {
+                        showNotification('There was an error sending your message. Please try again.', 'error');
+                    } else {
+                        showNotification('There was an error sending your message. Please try again.', 'error');
+                    }
+                });
+            }
+        }).catch(error => {
+            // Network or other error
+            console.error('Form submission error:', error);
+            showNotification('There was an error sending your message. Please try again.', 'error');
+        });
     });
 }
 
@@ -198,7 +217,11 @@ function showNotification(message, type) {
         max-width: 300px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         animation: slideInRight 0.3s ease;
-        background: ${type === 'success' ? 'linear-gradient(135deg, #48bb78, #38a169)' : 'linear-gradient(135deg, #f56565, #e53e3e)'};
+        background: ${
+            type === 'success' ? 'linear-gradient(135deg, #48bb78, #38a169)' : 
+            type === 'info' ? 'linear-gradient(135deg, #4299e1, #3182ce)' :
+            'linear-gradient(135deg, #f56565, #e53e3e)'
+        };
     `;
     
     // Add close button functionality
