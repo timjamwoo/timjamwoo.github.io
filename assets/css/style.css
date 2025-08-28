@@ -559,111 +559,168 @@ h3, h4, h5, h6 {
   position: relative;
 }
 
-/* Skills carousel container with arrow indicators */
-.skills-carousel-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Scroll arrow indicators */
-.skills-scroll-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background: var(--color-primary);
-  border: none;
-  border-radius: 50%;
-  color: var(--color-bg);
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  opacity: 0.7;
-}
-
-.skills-scroll-arrow:hover {
-  opacity: 1;
-  background: var(--color-secondary);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.skills-scroll-arrow.left {
-  left: 10px;
-}
-
-.skills-scroll-arrow.right {
-  right: 10px;
-}
-
-/* Removed gradient fade indicators - user feedback */
-
-.skills-category-title {
-  font-size: 1.5rem;
-  color: var(--color-text);
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-weight: 600;
-}
-
-.skills-grid {
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden; /* Prevent vertical scrolling */
-  scroll-behavior: smooth;
-  gap: 1.5rem;
-  margin-top: 1rem;
-  padding: 1rem 0;
-  /* Prevent vertical scrolling interference */
-  touch-action: pan-x; /* Only allow horizontal panning on touch devices */
-  overscroll-behavior-x: contain; /* Contain horizontal scroll */
-  overscroll-behavior-y: none; /* Prevent vertical scroll chaining */
-  /* Hide scrollbar but keep functionality */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-}
-
-.skills-grid::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
-}
-
-.skill-item {
-  text-align: center;
-  padding: 1rem;
+/* Skill tier expander styles */
+.skill-tier {
   background: var(--color-bg);
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  flex: 0 0 140px; /* Fixed width, don't grow or shrink */
-  min-width: 140px;
+}
+
+.skill-tier:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.skill-tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  background: var(--color-bg);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.skill-tier-header:hover {
+  background: rgba(0, 123, 255, 0.05);
+}
+
+.skill-tier-title {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin: 0;
+  font-weight: 400;
+}
+
+.skill-tier-icon {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-tier[open] .skill-tier-icon {
+  transform: rotate(180deg);
+}
+
+/* Skills grid for each tier */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem 1rem;
+}
+
+/* Individual skill item */
+.skill-item {
+  position: relative;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 123, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .skill-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 123, 255, 0.05);
+  border-color: var(--color-primary);
 }
 
 .skill-icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   margin: 0 auto 1rem;
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  border-radius: 15px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-bg);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .skill-name {
   font-weight: 600;
   color: var(--color-text);
   font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+/* Tooltip styles */
+.skill-tooltip {
+  position: absolute;
+  bottom: 100%;
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  max-width: 400px;
+  white-space: normal;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.skill-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  border: 5px solid transparent;
+  border-top-color: var(--color-text);
+}
+
+.skill-item:hover .skill-tooltip,
+.skill-item.tooltip-active .skill-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-5px);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .skill-tier-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .skill-tier-title {
+    font-size: 1.3rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 0 1.5rem 1.5rem;
+    gap: 1rem;
+  }
+  
+  .skill-item {
+    padding: 1rem 0.5rem;
+  }
+  
+  .skill-tooltip {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    transform: none;
+    max-width: none;
+    margin-bottom: 0;
+  }
+  
+  .skill-tooltip::after {
+    display: none;
+  }
 }
 
 /* ===== PORTFOLIO LOGOS SECTION ===== */
@@ -1142,7 +1199,7 @@ h3, h4, h5, h6 {
   font-size: 1.8rem;
   color: var(--color-text);
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .service-description {
