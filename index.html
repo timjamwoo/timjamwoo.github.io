@@ -66,101 +66,160 @@
   <main class="main-content">
     <!-- Skills Section -->
     <section class="section skills" id="skills">
-<!--      <h2 class="section-title animate-on-scroll"><i class="fas fa-code"></i> Technical Expertise</h2>-->
       <div class="skills-content">
-        <div class="skills-category">
-<!--          <h3 class="skills-category-title">Core Skills</h3>-->
-          <div class="skills-carousel-wrapper">
-            <button class="skills-scroll-arrow left" aria-label="Scroll skills left">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="skills-scroll-arrow right" aria-label="Scroll skills right">
-              <i class="fas fa-chevron-right"></i>
-            </button>
-            <div class="skills-grid" id="skills-grid">
-            <div class="skill-item animate-on-scroll">
+        <!-- Key Expertise -->
+        <details class="skill-tier animate-on-scroll" open>
+          <summary class="skill-tier-header">
+            <h3 class="skill-tier-title">Key Expertise</h3>
+            <i class="fas fa-chevron-down skill-tier-icon"></i>
+          </summary>
+          <div class="skills-grid">
+            <div class="skill-item" data-tooltip="15 years professional experience across a wide range of applications, including async/multi-threaded programming">
               <div class="skill-icon"><i class="fas fa-code"></i></div>
               <div class="skill-name">C#</div>
             </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">.NET</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
+            <div class="skill-item" data-tooltip="Cross-platform apps with custom controls, platform integrations, and migrations from Xamarin.Forms">
               <div class="skill-icon"><i class="fas fa-mobile"></i></div>
-              <div class="skill-name">MAUI</div>
+              <div class="skill-name">.NET MAUI</div>
             </div>
-            <div class="skill-item animate-on-scroll">
+            <div class="skill-item" data-tooltip="15 years, custom UI, MVVM frameworks, enterprise apps; deep expertise in XAML, styles, data binding, and control templating">
               <div class="skill-icon"><i class="fab fa-windows"></i></div>
               <div class="skill-name">WPF</div>
             </div>
-            <div class="skill-item animate-on-scroll">
+            <div class="skill-item" data-tooltip="Designed and implemented MVVM frameworks ensuring testability and clean separation of concerns">
               <div class="skill-icon"><i class="fa-solid fa-laptop-code"></i></div>
               <div class="skill-name">MVVM</div>
             </div>
-            <div class="skill-item animate-on-scroll">
+            <div class="skill-item" data-tooltip="Architected and deployed scalable cloud backends and automation pipelines using Azure Functions, cloud services, storage">
               <div class="skill-icon"><i class="fas fa-cloud"></i></div>
               <div class="skill-name">Azure</div>
             </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-              <div class="skill-name">Git</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-database"></i></div>
-              <div class="skill-name">SQL</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-              <div class="skill-name">Azure Functions</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-diagram-project"></i></div>
-              <div class="skill-name">REST API Design</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">Xamarin (legacy)</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-robot"></i></div>
-              <div class="skill-name">AI API Integrations</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
+            <div class="skill-item" data-tooltip="Implemented robust Azure DevOps & GitHub Actions pipelines with environment management, test automation, and secure deployments">
               <div class="skill-icon"><i class="fas fa-gears"></i></div>
-              <div class="skill-name">CI/CD Pipelines</div>
+              <div class="skill-name">CI/CD</div>
             </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
-              <div class="skill-name">Cross-Platform</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-js"></i></div>
-              <div class="skill-name">JavaScript</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-docker"></i></div>
-              <div class="skill-name">Docker</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
-              <div class="skill-name">DevOps</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-server"></i></div>
-              <div class="skill-name">Microservices</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-              <div class="skill-name">Security</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-              <div class="skill-name">Analytics</div>
-            </div>
+            <div class="skill-item" data-tooltip="Accelerating delivery with AI-assisted development tools like GitHub Copilot, ChatGPT, Cursor, Lovable.dev, and Claude">
+              <div class="skill-icon"><i class="fas fa-robot"></i></div>
+              <div class="skill-name">AI</div>
             </div>
           </div>
-        </div>
+        </details>
+
+        <!-- Additional Expertise -->
+        <details class="skill-tier animate-on-scroll" open>
+          <summary class="skill-tier-header">
+            <h3 class="skill-tier-title">Additional Expertise</h3>
+            <i class="fas fa-chevron-down skill-tier-icon"></i>
+          </summary>
+          <div class="skills-grid">
+            <div class="skill-item" data-tooltip="Maintained and modernized production Xamarin apps, supporting a robust upgrade path to MAUI">
+              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-name">Xamarin</div>
+            </div>
+            <div class="skill-item" data-tooltip="Designed and evaluated A/B tests, integrated analytics tools, and applied insights to improve UX and adoption">
+              <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="skill-name">Experimentation & Analytics</div>
+            </div>
+            <div class="skill-item" data-tooltip="Designed and consumed APIs with authentication, error handling, and data contracts">
+              <div class="skill-icon"><i class="fas fa-diagram-project"></i></div>
+              <div class="skill-name">REST APIs & JSON</div>
+            </div>
+            <div class="skill-item" data-tooltip="Implemented data access layers with LINQ, migrations, and performance tuning">
+              <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+              <div class="skill-name">Entity Framework Core (ORMs)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Designed schemas, optimized queries, and integrated databases in enterprise and mobile apps">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <div class="skill-name">SQL (SQL Server, SQLite)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Architected maintainable, testable applications with inversion of control">
+              <div class="skill-icon"><i class="fas fa-cubes"></i></div>
+              <div class="skill-name">Dependency Injection (Autofac, Microsoft DI)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Applied observables and LINQ-style operators for responsive UIs and async workflows">
+              <div class="skill-icon"><i class="fas fa-stream"></i></div>
+              <div class="skill-name">Rx.NET & Reactive Programming</div>
+            </div>
+            <div class="skill-item" data-tooltip="Set up structured logging and error tracking across distributed systems">
+              <div class="skill-icon"><i class="fas fa-clipboard-list"></i></div>
+              <div class="skill-name">Logging & Monitoring (Sentry, Serilog, NLog)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Integrated advanced controls, charting, and UI components into cross-platform apps">
+              <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
+              <div class="skill-name">UI Toolkits & Libraries (Syncfusion, Telerik, DevExpress, Sharpnado)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Developed automated test suites ensuring regression protection and code quality">
+              <div class="skill-icon"><i class="fas fa-vial"></i></div>
+              <div class="skill-name">Unit Testing (NUnit, XUnit, MSTest)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Created isolated tests with flexible mocking frameworks">
+              <div class="skill-icon"><i class="fas fa-mask"></i></div>
+              <div class="skill-name">Mocking (Moq, RhinoMocks)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Built automated UI tests for cross-platform validation and regression prevention">
+              <div class="skill-icon"><i class="fas fa-laptop"></i></div>
+              <div class="skill-name">UI Automation Testing (Selenium, Appium, Browserstack)</div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Broader Toolkit -->
+        <details class="skill-tier animate-on-scroll">
+          <summary class="skill-tier-header">
+            <h3 class="skill-tier-title">Broader Toolkit</h3>
+            <i class="fas fa-chevron-down skill-tier-icon"></i>
+          </summary>
+          <div class="skills-grid">
+            <div class="skill-item" data-tooltip="Implemented real-time communication features such as notifications and live dashboards">
+              <div class="skill-icon"><i class="fas fa-broadcast-tower"></i></div>
+              <div class="skill-name">SignalR</div>
+            </div>
+            <div class="skill-item" data-tooltip="Used for data interchange, configuration, and integration with legacy systems">
+              <div class="skill-icon"><i class="fas fa-code"></i></div>
+              <div class="skill-name">XML</div>
+            </div>
+            <div class="skill-item" data-tooltip="Integrated headless CMS solutions for content-driven applications">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <div class="skill-name">NoSQL Databases (Sanity CMS)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Experience maintaining and extending a variety of websites and applications">
+              <div class="skill-icon"><i class="fab fa-html5"></i></div>
+              <div class="skill-name">Web Technologies (ASP.NET, HTML/CSS, JavaScript, WordPress)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Maintained and extended legacy desktop applications">
+              <div class="skill-icon"><i class="fab fa-windows"></i></div>
+              <div class="skill-name">WinForms</div>
+            </div>
+            <div class="skill-item" data-tooltip="Experience publishing and maintaining apps on App Store and Google Play, including TestFlight and beta distribution">
+              <div class="skill-icon"><i class="fas fa-store"></i></div>
+              <div class="skill-name">App Stores</div>
+            </div>
+            <div class="skill-item" data-tooltip="Extensive experience with modern IDEs and debugging/profiling workflows">
+              <div class="skill-icon"><i class="fas fa-tools"></i></div>
+              <div class="skill-name">Development Tools (Visual Studio, Rider, VS Code, Xcode)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Explored game development workflows and prototyping in C#">
+              <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
+              <div class="skill-name">Unity</div>
+            </div>
+            <div class="skill-item" data-tooltip="Created custom extensions and automation for business workflows">
+              <div class="skill-icon"><i class="fas fa-file-excel"></i></div>
+              <div class="skill-name">Excel Plugin Development</div>
+            </div>
+            <div class="skill-item" data-tooltip="Integrated Zoom video calling into WPF, MAUI and Xamarin apps via native and web SDKs">
+              <div class="skill-icon"><i class="fas fa-video"></i></div>
+              <div class="skill-name">Zoom SDK</div>
+            </div>
+            <div class="skill-item" data-tooltip="Created and maintained custom workflows and controls using Apex">
+              <div class="skill-icon"><i class="fab fa-salesforce"></i></div>
+              <div class="skill-name">Salesforce</div>
+            </div>
+            <div class="skill-item" data-tooltip="Built Windows installers with custom configuration and deployment options">
+              <div class="skill-icon"><i class="fas fa-download"></i></div>
+              <div class="skill-name">Advanced Installer</div>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
 

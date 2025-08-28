@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initContactForm();
     initHeaderBar();
-    initSkillsCarousel();
+    initSkillsTooltips();
     initRecommendationsCarousel();
     
     console.log('🚀 Portfolio website loaded successfully!');
@@ -390,123 +390,44 @@ function debounce(func, wait) {
     };
 }
 
-// ===== SKILLS CAROUSEL =====
-function initSkillsCarousel() {
-    const skillsGrid = document.querySelector('.skills-grid');
-    const leftArrow = document.querySelector('.skills-scroll-arrow.left');
-    const rightArrow = document.querySelector('.skills-scroll-arrow.right');
+// ===== SKILLS TOOLTIPS =====
+function initSkillsTooltips() {
+    const skillItems = document.querySelectorAll('.skill-item');
     
-    if (!skillsGrid || !leftArrow || !rightArrow) return;
-    
-    // Get all original skill items
-    const originalSkillItems = Array.from(skillsGrid.querySelectorAll('.skill-item'));
-    const itemCount = originalSkillItems.length;
-    
-    if (itemCount === 0) return;
-    
-    // Clear the grid and rebuild with proper infinite scroll structure
-    skillsGrid.innerHTML = '';
-    
-    // Create three sets: clone-end + original + clone-start for seamless infinite scroll
-    // Clone for beginning (when scrolling left from start)
-    const startClones = originalSkillItems.map(item => {
-        const clone = item.cloneNode(true);
-        clone.classList.add('skill-clone', 'start-clone');
-        // Observe the clone for animations
-        observeElement(clone);
-        return clone;
-    });
-    
-    // Clone for end (when scrolling right past end)
-    const endClones = originalSkillItems.map(item => {
-        const clone = item.cloneNode(true);
-        clone.classList.add('skill-clone', 'end-clone');
-        // Observe the clone for animations
-        observeElement(clone);
-        return clone;
-    });
-    
-    // Append in order: end-clones + originals + start-clones
-    endClones.forEach(clone => skillsGrid.appendChild(clone));
-    originalSkillItems.forEach(item => {
-        skillsGrid.appendChild(item);
-        // Re-observe original items in case they were removed from DOM
-        observeElement(item);
-    });
-    startClones.forEach(clone => skillsGrid.appendChild(clone));
-    
-    // Calculate widths
-    const itemWidth = 100; // From CSS: flex: 0 0 140px
-    const gap = 24; // From CSS: gap: 1.5rem = 24px
-    const itemTotalWidth = itemWidth + gap;
-    const originalSetWidth = itemCount * itemTotalWidth;
-    
-    let animationId;
+    skillItems.forEach(item => {
+        const tooltipText = item.getAttribute('data-tooltip');
+        if (!tooltipText) return;
         
-    // Arrow button functionality
-    function scrollLeft() {
-        skillsGrid.scrollBy({
-            left: -itemTotalWidth * 3, // Scroll 3 items at a time
-            behavior: 'smooth'
-        });
-    }
-    
-    function scrollRight() {
-        skillsGrid.scrollBy({
-            left: itemTotalWidth * 3, // Scroll 3 items at a time
-            behavior: 'smooth'
-        });
-    }
+        // Create tooltip element
+        const tooltip = document.createElement('div');
+        tooltip.className = 'skill-tooltip';
+        tooltip.textContent = tooltipText;
+        item.appendChild(tooltip);
         
-    // Event listeners for arrows
-    leftArrow.addEventListener('click', scrollLeft);
-    rightArrow.addEventListener('click', scrollRight);
-        
-    // Handle manual scrolling (mouse wheel, touch, etc.)
-    skillsGrid.addEventListener('scroll', () => {
-        // Handle infinite scroll position corrections without animation
-        const currentScroll = skillsGrid.scrollLeft;
-        const maxScroll = originalSetWidth * 2; 
-        const minScroll = 0;
-        
-        // Use a small timeout to avoid interfering with smooth scrolling
-        setTimeout(() => {
-            if (currentScroll >= maxScroll - 1) {
-                skillsGrid.scrollLeft = originalSetWidth;
-            } else if (currentScroll <= minScroll + 1) {
-                skillsGrid.scrollLeft = originalSetWidth;
-            }
-        }, 50);
-    });
-    
-    // Arrow visibility based on scroll position
-    function updateArrowVisibility() {
-        // Always show both arrows since we have infinite scroll
-        leftArrow.style.opacity = '0.7';
-        rightArrow.style.opacity = '0.7';
-    }
-    
-    // Update arrow visibility on scroll
-    skillsGrid.addEventListener('scroll', updateArrowVisibility);
-    updateArrowVisibility(); // Initial call
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.target.closest('.skills-grid')) {
-            if (e.key === 'ArrowLeft') {
+        // Handle touch devices
+        if ('ontouchstart' in window) {
+            item.addEventListener('touchstart', (e) => {
                 e.preventDefault();
-                scrollLeft();
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                scrollRight();
-            }
-        }
-    });
-    
-    // Clean up on page unload
-    window.addEventListener('beforeunload', () => {
-        if (animationId) {
-            cancelAnimationFrame(animationId);
+                
+                // Remove active class from other tooltips
+                skillItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('tooltip-active');
+                    }
+                });
+                
+                // Toggle current tooltip
+                item.classList.toggle('tooltip-active');
+            });
+            
+            // Close tooltip when touching outside
+            document.addEventListener('touchstart', (e) => {
+                if (!e.target.closest('.skill-item')) {
+                    skillItems.forEach(item => {
+                        item.classList.remove('tooltip-active');
+                    });
+                }
+            });
         }
     });
 }
