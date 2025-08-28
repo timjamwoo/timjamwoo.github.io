@@ -608,7 +608,7 @@ h3, h4, h5, h6 {
 /* Skills grid for each tier */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1.5rem;
   padding: 0 2rem 2rem;
 }
@@ -665,7 +665,7 @@ h3, h4, h5, h6 {
   font-size: 0.8rem;
   line-height: 1.4;
   white-space: nowrap;
-  max-width: 300px;
+  max-width: 400px;
   white-space: normal;
   text-align: left;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
