@@ -1318,11 +1318,11 @@ h3, h4, h5, h6 {
 }
 
 .carousel-btn-prev {
-  left: 1rem;
+  left: -3rem;
 }
 
 .carousel-btn-next {
-  right: 1rem;
+  right: -3rem;
 }
 
 .carousel-btn:hover {
@@ -1398,10 +1398,10 @@ h3, h4, h5, h6 {
   }
   
   .carousel-btn-prev {
-    left: 0.5rem;
+    left: -2rem;
   }
 
   .carousel-btn-next {
-    right: 0.5rem;
+    right: -2rem;
   }
 }
