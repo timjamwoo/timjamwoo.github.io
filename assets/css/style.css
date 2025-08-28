@@ -1256,7 +1256,7 @@ h3, h4, h5, h6 {
   min-width: 100%;
   max-width: 100%;
   background: var(--color-bg);
-  padding: 2.5rem;
+  padding: 2.5rem 4rem;
   box-sizing: border-box;
   flex-shrink: 0;
   overflow: hidden;
@@ -1424,7 +1424,7 @@ h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   .recommendation-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem 3rem;
   }
   
   .recommendation-header {
