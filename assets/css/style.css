@@ -1292,12 +1292,15 @@ h3, h4, h5, h6 {
 .carousel-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 2rem;
   padding: 0 1rem;
 }
 
 .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -1310,6 +1313,16 @@ h3, h4, h5, h6 {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1.2rem;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn-prev {
+  left: 1rem;
+}
+
+.carousel-btn-next {
+  right: 1rem;
 }
 
 .carousel-btn:hover {
@@ -1382,5 +1395,13 @@ h3, h4, h5, h6 {
     width: 45px;
     height: 45px;
     font-size: 1rem;
+  }
+  
+  .carousel-btn-prev {
+    left: 0.5rem;
+  }
+
+  .carousel-btn-next {
+    right: 0.5rem;
   }
 }
