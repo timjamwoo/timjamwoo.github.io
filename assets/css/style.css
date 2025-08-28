@@ -592,7 +592,7 @@ h3, h4, h5, h6 {
   font-size: 1.5rem;
   color: var(--color-text);
   margin: 0;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .skill-tier-icon {
@@ -608,16 +608,16 @@ h3, h4, h5, h6 {
 /* Skills grid for each tier */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1.5rem;
-  padding: 0 2rem 2rem;
+  padding: 0 1rem 1rem;
 }
 
 /* Individual skill item */
 .skill-item {
   position: relative;
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 0.5rem 1rem;
   background: rgba(0, 123, 255, 0.02);
   border-radius: 12px;
   border: 1px solid rgba(0, 123, 255, 0.1);
@@ -656,15 +656,12 @@ h3, h4, h5, h6 {
 .skill-tooltip {
   position: absolute;
   bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
   background: var(--color-text);
   color: var(--color-bg);
   padding: 0.8rem 1rem;
   border-radius: 8px;
   font-size: 0.8rem;
   line-height: 1.4;
-  white-space: nowrap;
   max-width: 400px;
   white-space: normal;
   text-align: left;
@@ -680,8 +677,6 @@ h3, h4, h5, h6 {
   content: '';
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
   border: 5px solid transparent;
   border-top-color: var(--color-text);
 }
@@ -690,7 +685,7 @@ h3, h4, h5, h6 {
 .skill-item.tooltip-active .skill-tooltip {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(-5px);
+  transform: translateY(-5px);
 }
 
 /* Mobile responsive adjustments */
@@ -1204,7 +1199,7 @@ h3, h4, h5, h6 {
   font-size: 1.8rem;
   color: var(--color-text);
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .service-description {
