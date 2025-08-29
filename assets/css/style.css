@@ -14,7 +14,7 @@
   --color-bg: #F2FEFF;
   --color-bg2: #f7fafc;
   --color-bg3: #edf2f7;
-  --color-bg4: #f8fafc;
+  --color-bg4: #d8dadc;
   --color-white: #F2FEFF;
   --color-text: #131515;
   --color-text2: #232525;
@@ -371,11 +371,9 @@ h3, h4, h5, h6 {
 }
 
 .section {
-  padding: 2rem 0;
-  max-width: 80%;
+  padding: 2rem;
+  max-width: 90%;
   margin: 0 auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
 .section-title {
@@ -936,7 +934,12 @@ h3, h4, h5, h6 {
   }
   
   .section {
-    padding: 3rem 1rem;
+    padding: 1rem 1rem;
+  }
+
+
+  .skills {
+    padding: 1rem 0;
   }
   
   .about-content {
