@@ -248,6 +248,15 @@ h3, h4, h5, h6 {
   transition: 0.3s;
 }
 
+.inline-link {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.inline-link:hover {
+  color: var(--color-secondary);
+}
+
 /* Mobile Responsive */
 @media (max-width: 820px) {
   .header-content {
@@ -282,7 +291,6 @@ h3, h4, h5, h6 {
   .header-social {
     gap: 0.8rem;
   }
-  
   .social-link {
     font-size: 1rem;
   }
