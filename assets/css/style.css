@@ -1157,12 +1157,12 @@ h3, h4, h5, h6 {
 }
 
 .service-card-freelance {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent1));
   color: var(--color-white);
 }
 
 .service-card-consulting {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
   color: var(--color-white);
 }
 
@@ -1232,6 +1232,29 @@ h3, h4, h5, h6 {
   color: #4a5568;
   line-height: 1.7;
   font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-cta {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.service-cta:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
