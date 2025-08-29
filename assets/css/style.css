@@ -1085,7 +1085,7 @@ h3, h4, h5, h6 {
   font-size: 1.8rem;
   color: var(--color-text);
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .experience-period {
@@ -1157,7 +1157,6 @@ h3, h4, h5, h6 {
   font-size: 2rem;
   color: var(--color-text);
   margin-bottom: 1rem;
-  font-weight: 600;
 }
 
 .services-description {
@@ -1384,7 +1383,7 @@ h3, h4, h5, h6 {
 .recommender-name {
   font-family: "Jersey 15", sans-serif;
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--color-text);
   text-decoration: none;
   margin-bottom: 0.5rem;
