@@ -1279,7 +1279,7 @@ h3, h4, h5, h6 {
   min-width: 100%;
   max-width: 100%;
   background: var(--color-bg);
-  padding: 2.5rem;
+  padding: 2.5rem 4rem;
   box-sizing: border-box;
   flex-shrink: 0;
   overflow: hidden;
@@ -1372,12 +1372,14 @@ h3, h4, h5, h6 {
 .carousel-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 2rem;
   padding: 0 1rem;
 }
 
 .carousel-btn {
+  position: absolute;
+  top: 50%;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -1390,6 +1392,16 @@ h3, h4, h5, h6 {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1.2rem;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn-prev {
+  left: -3rem;
+}
+
+.carousel-btn-next {
+  right: -3rem;
 }
 
 .carousel-btn:hover {
@@ -1434,7 +1446,7 @@ h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   .recommendation-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem 3rem;
   }
   
   .recommendation-header {
@@ -1462,5 +1474,13 @@ h3, h4, h5, h6 {
     width: 45px;
     height: 45px;
     font-size: 1rem;
+  }
+  
+  .carousel-btn-prev {
+    left: -2rem;
+  }
+
+  .carousel-btn-next {
+    right: -2rem;
   }
 }
