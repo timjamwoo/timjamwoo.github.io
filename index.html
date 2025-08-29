@@ -8,7 +8,7 @@
   <meta name="description" content="Senior .NET Developer specializing in MAUI, WPF, and cross-platform applications. 15+ years of experience creating robust, user-friendly software solutions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Jersey+15&family=Raleway:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -21,11 +21,12 @@
       </div>
       <nav class="header-nav">
         <a href="#hero" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#projects" class="nav-link">Projects</a>
         <a href="#skills" class="nav-link">Skills</a>
+        <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#recommendations" class="nav-link">Recommendations</a>
+        <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
       <div class="header-social">
@@ -63,12 +64,185 @@
 
   <!-- Main Content -->
   <main class="main-content">
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+      <div class="skills-content">
+        <!-- Key Expertise -->
+        <details class="skill-tier animate-on-scroll" open>
+          <summary class="skill-tier-header">
+            <h3 class="skill-tier-title">Key Expertise</h3>
+            <i class="fas fa-chevron-down skill-tier-icon"></i>
+          </summary>
+          <div class="skills-grid">
+            <div class="skill-item" data-tooltip="15 years professional experience across a wide range of applications, including async/multi-threaded programming">
+              <div class="skill-icon"><i class="fas fa-code"></i></div>
+              <div class="skill-name">C#</div>
+            </div>
+            <div class="skill-item" data-tooltip="Cross-platform apps with custom controls, platform integrations, and migrations from Xamarin.Forms">
+              <div class="skill-icon"><i class="fas fa-mobile"></i></div>
+              <div class="skill-name">.NET MAUI</div>
+            </div>
+            <div class="skill-item" data-tooltip="15 years, custom UI, MVVM frameworks, enterprise apps; deep expertise in XAML, styles, data binding, and control templating">
+              <div class="skill-icon"><i class="fab fa-windows"></i></div>
+              <div class="skill-name">WPF</div>
+            </div>
+            <div class="skill-item" data-tooltip="Designed and implemented MVVM frameworks ensuring testability and clean separation of concerns">
+              <div class="skill-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <div class="skill-name">MVVM</div>
+            </div>
+            <div class="skill-item" data-tooltip="Architected and deployed scalable cloud backends and automation pipelines using Azure Functions, cloud services, storage">
+              <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+              <div class="skill-name">Azure</div>
+            </div>
+            <div class="skill-item" data-tooltip="Implemented robust Azure DevOps & GitHub Actions pipelines with environment management, test automation, and secure deployments">
+              <div class="skill-icon"><i class="fas fa-gears"></i></div>
+              <div class="skill-name">CI/CD</div>
+            </div>
+            <div class="skill-item" data-tooltip="Accelerating delivery with AI-assisted development tools like GitHub Copilot, ChatGPT, Cursor, Lovable.dev, and Claude">
+              <div class="skill-icon"><i class="fas fa-robot"></i></div>
+              <div class="skill-name">AI</div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Additional Expertise -->
+        <details class="skill-tier animate-on-scroll" open>
+          <summary class="skill-tier-header">
+            <h3 class="skill-tier-title">Additional Expertise</h3>
+            <i class="fas fa-chevron-down skill-tier-icon"></i>
+          </summary>
+          <div class="skills-grid">
+            <div class="skill-item" data-tooltip="Maintained and modernized production Xamarin apps, supporting a robust upgrade path to MAUI">
+              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-name">Xamarin</div>
+            </div>
+            <div class="skill-item" data-tooltip="Designed and evaluated A/B tests, integrated analytics tools, and applied insights to improve UX and adoption">
+              <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="skill-name">Experimentation & Analytics</div>
+            </div>
+            <div class="skill-item" data-tooltip="Designed and consumed APIs with authentication, error handling, and data contracts">
+              <div class="skill-icon"><i class="fas fa-diagram-project"></i></div>
+              <div class="skill-name">REST APIs & JSON</div>
+            </div>
+            <div class="skill-item" data-tooltip="Implemented data access layers with LINQ, migrations, and performance tuning">
+              <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+              <div class="skill-name">Entity Framework Core (ORMs)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Designed schemas, optimized queries, and integrated databases in enterprise and mobile apps">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <div class="skill-name">SQL (SQL Server, SQLite)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Architected maintainable, testable applications with inversion of control">
+              <div class="skill-icon"><i class="fas fa-cubes"></i></div>
+              <div class="skill-name">Dependency Injection (Autofac, Microsoft DI)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Applied observables and LINQ-style operators for responsive UIs and async workflows">
+              <div class="skill-icon"><i class="fas fa-stream"></i></div>
+              <div class="skill-name">Rx.NET & Reactive Programming</div>
+            </div>
+            <div class="skill-item" data-tooltip="Set up structured logging and error tracking across distributed systems">
+              <div class="skill-icon"><i class="fas fa-clipboard-list"></i></div>
+              <div class="skill-name">Logging & Monitoring (Sentry, Serilog, NLog)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Integrated advanced controls, charting, and UI components into cross-platform apps">
+              <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
+              <div class="skill-name">UI Toolkits & Libraries (Syncfusion, Telerik, DevExpress, Sharpnado)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Developed automated test suites ensuring regression protection and code quality">
+              <div class="skill-icon"><i class="fas fa-vial"></i></div>
+              <div class="skill-name">Unit Testing (NUnit, XUnit, MSTest)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Created isolated tests with flexible mocking frameworks">
+              <div class="skill-icon"><i class="fas fa-mask"></i></div>
+              <div class="skill-name">Mocking (Moq, RhinoMocks)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Built automated UI tests for cross-platform validation and regression prevention">
+              <div class="skill-icon"><i class="fas fa-laptop"></i></div>
+              <div class="skill-name">UI Automation Testing (Selenium, Appium, Browserstack)</div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Broader Toolkit -->
+        <details class="skill-tier animate-on-scroll">
+          <summary class="skill-tier-header">
+            <h3 class="skill-tier-title">Broader Toolkit</h3>
+            <i class="fas fa-chevron-down skill-tier-icon"></i>
+          </summary>
+          <div class="skills-grid">
+            <div class="skill-item" data-tooltip="Implemented real-time communication features such as notifications and live dashboards">
+              <div class="skill-icon"><i class="fas fa-broadcast-tower"></i></div>
+              <div class="skill-name">SignalR</div>
+            </div>
+            <div class="skill-item" data-tooltip="Used for data interchange, configuration, and integration with legacy systems">
+              <div class="skill-icon"><i class="fas fa-code"></i></div>
+              <div class="skill-name">XML</div>
+            </div>
+            <div class="skill-item" data-tooltip="Integrated headless CMS solutions for content-driven applications">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <div class="skill-name">NoSQL Databases (Sanity CMS)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Experience maintaining and extending a variety of websites and applications">
+              <div class="skill-icon"><i class="fab fa-html5"></i></div>
+              <div class="skill-name">Web Technologies (ASP.NET, HTML/CSS, JavaScript, WordPress)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Maintained and extended legacy desktop applications">
+              <div class="skill-icon"><i class="fab fa-windows"></i></div>
+              <div class="skill-name">WinForms</div>
+            </div>
+            <div class="skill-item" data-tooltip="Experience publishing and maintaining apps on App Store and Google Play, including TestFlight and beta distribution">
+              <div class="skill-icon"><i class="fas fa-store"></i></div>
+              <div class="skill-name">App Stores</div>
+            </div>
+            <div class="skill-item" data-tooltip="Extensive experience with modern IDEs and debugging/profiling workflows">
+              <div class="skill-icon"><i class="fas fa-tools"></i></div>
+              <div class="skill-name">Development Tools (Visual Studio, Rider, VS Code, Xcode)</div>
+            </div>
+            <div class="skill-item" data-tooltip="Explored game development workflows and prototyping in C#">
+              <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
+              <div class="skill-name">Unity</div>
+            </div>
+            <div class="skill-item" data-tooltip="Created custom extensions and automation for business workflows">
+              <div class="skill-icon"><i class="fas fa-file-excel"></i></div>
+              <div class="skill-name">Excel Plugin Development</div>
+            </div>
+            <div class="skill-item" data-tooltip="Integrated Zoom video calling into WPF, MAUI and Xamarin apps via native and web SDKs">
+              <div class="skill-icon"><i class="fas fa-video"></i></div>
+              <div class="skill-name">Zoom SDK</div>
+            </div>
+            <div class="skill-item" data-tooltip="Created and maintained custom workflows and controls using Apex">
+              <div class="skill-icon"><i class="fab fa-salesforce"></i></div>
+              <div class="skill-name">Salesforce</div>
+            </div>
+            <div class="skill-item" data-tooltip="Built Windows installers with custom configuration and deployment options">
+              <div class="skill-icon"><i class="fas fa-download"></i></div>
+              <div class="skill-name">Advanced Installer</div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Company Logos Section -->
+    <section class="section portfolio-logos" id="portfolio-logos">
+      <p class="logos-description animate-on-scroll">A contributor at organisations ranging from global investment banks to innovative travel startups.</p>
+      <div class="logo-row animate-on-scroll">
+        <img src="assets/images/logos/rome2rio.png" alt="Rome2rio"/>
+        <img src="assets/images/logos/morgan-stanley.svg" alt="Morgan Stanley">
+        <img src="assets/images/logos/citi.svg" alt="Citi" class="logo-item-padding"/>
+        <img src="assets/images/logos/credit-suisse.svg" alt="Credit Suisse" class="logo-item-padding"/>
+      </div>
+
+      <div class="section-button">
+        <a href="#contact" class="contact-btn">Get in touch</a>
+      </div>
+    </section>
+      
     <!-- About Section -->
     <section class="section about" id="about">
-      <h2 class="section-title animate-on-scroll">About Me</h2>
       <div class="about-content animate-on-scroll">
         <div class="about-image">
-          <img src="assets/images/tim.jpg" alt="Tim Barry-Woods" loading="lazy">
+          <img src="assets/images/tim-nofilter.jpg" alt="Tim Barry-Woods" loading="lazy">
         </div>
         <div class="about-text">
           <p>
@@ -81,34 +255,93 @@
             <strong>Professional Focus:</strong> I excel at building scalable applications with clean architecture, specializing in MVVM patterns, real-time data processing, and API integrations. My experience spans from startup environments to enterprise-scale applications, always with a focus on delivering maintainable, high-performance solutions.
           </p>
           <p>
-            I embrace emerging AI technologies to supercharge development speed and efficiency, helping deliver high-quality solutions faster without compromising reliability. When I'm not coding, you'll find me exploring new technologies, mentoring fellow developers on platforms like <a href="https://www.codementor.io/@timbarrywoods" target="_blank" rel="noopener">Codementor</a>, or working on open-source contributions that benefit the wider development community.
+            I embrace emerging AI technologies to supercharge development speed and efficiency, helping deliver high-quality solutions faster without compromising reliability. When I’m not building software, I’m usually exploring new places, making music, or losing myself in a video game.
           </p>
         </div>
       </div>
     </section>
 
+      <!-- Services Section -->
+      <section class="section services" id="services">
+          <div class="services-intro animate-on-scroll">
+            <h2 class="section-title">Services</h2>
+              <h3 class="services-subtitle">How I Can Help Your Business</h3>
+              <p class="services-description">
+                  Whether you need a full app built from scratch or expert input on an existing project, I can help.
+              </p>
+          </div>
+          <div class="services-grid">
+              <div class="service-card service-card-development animate-on-scroll">
+                  <div class="service-icon">
+                      <i class="fas fa-mobile-screen-button"></i>
+                  </div>
+                  <div class="service-content">
+                      <h3 class="service-title">Bespoke App Development</h3>
+                      <p class="service-description">
+                          I specialise in building custom cross-platform applications that fit your business needs perfectly. From concept to deployment, I ensure your app is reliable, scalable, and user-friendly.
+                      </p>
+                      <a href="#contact" class="service-cta">Enquire Now</a>
+                  </div>
+              </div>
+
+              <div class="service-card service-card-freelance animate-on-scroll">
+                  <div class="service-icon">
+                      <i class="fas fa-users"></i>
+                  </div>
+                  <div class="service-content">
+                      <h3 class="service-title">Freelance Development Support</h3>
+                      <p class="service-description">
+                          Need an extra pair of experienced hands? I can join your team on a freelance basis, helping deliver high-quality code, improve architecture, or tackle those features that keep getting pushed back.
+                      </p>
+                      <a href="#contact" class="service-cta">Get Started</a>
+                  </div>
+              </div>
+
+              <div class="service-card service-card-consulting animate-on-scroll">
+                  <div class="service-icon">
+                      <i class="fas fa-lightbulb"></i>
+                  </div>
+                  <div class="service-content">
+                      <h3 class="service-title">Consulting & Technical Guidance</h3>
+                      <p class="service-description">
+                          I offer consulting sessions to help you make the right technical decisions, whether that's choosing the right stack, optimising performance, or planning an app migration.
+                      </p>
+                      <a href="#contact" class="service-cta">Book Consultation</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+
     <!-- Experience Section -->
     <section class="section experience" id="experience">
-      <h2 class="section-title animate-on-scroll"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+      <h2 class="section-title animate-on-scroll">Professional Experience</h2>
+      <div class="services-intro animate-on-scroll">
+        <p class="services-description">
+            Here's a quick overview of my professional journey. You can find a more detailed breakdown on my <a href="https://www.linkedin.com/in/tim-barry-woods" target="_blank" rel="noopener">LinkedIn profile</a>.
+        </p>
+      </div>
+        <script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/tim-barry-woods"></script>
       <div class="experience-content">
         <div class="experience-item animate-on-scroll">
           <h3 class="experience-title">Senior .NET Developer & Consultant</h3>
-          <p class="experience-period">2015 - Present</p>
+          <p class="experience-period">Since 2010</p>
           <p class="experience-description">
-            Specializing in cross-platform application development with .NET MAUI and WPF. Led development of enterprise applications serving thousands of users, with expertise in real-time systems, API design, and Azure cloud services.
+            I've been building software for over 15 years, starting my career in large-scale corporate environments before moving into freelance work and consultancy. Along the way I've worked in industries ranging from finance to startups, giving me a broad perspective on how technology drives different kinds of businesses.
           </p>
           <div class="experience-highlights">
             <ul>
-              <li>Designed and built hybrid desktop/mobile applications for industrial IoT systems</li>
-              <li>Implemented real-time data processing solutions with live video streaming capabilities</li>
-              <li>Mentored development teams on best practices and clean architecture principles</li>
-              <li>Successfully delivered projects ranging from startup MVPs to enterprise-scale solutions</li>
+              <li>Strong background in enterprise-grade systems from my early years in banking and corporate tech.</li>
+              <li>Experience in startups and smaller teams, where adaptability, speed, and product focus were key.</li>
+              <li>Today I run my own freelance business, delivering bespoke applications, cross-platform development (desktop, mobile, web), and technical consulting for clients worldwide.</li>
+              <li>Skilled across the full stack, from frontend UI to backend services, traditional server architectures to modern cloud-native and serverless functions.</li>
+              <li>Experienced in real-time systems, from IoT integrations and data streaming to live video applications.</li>
+              <li>Embracing emerging AI technologies to accelerate development, improve code quality, and build intelligent features into applications.</li>
             </ul>
           </div>
         </div>
         
         <div class="experience-item animate-on-scroll">
-          <h3 class="experience-title">Technical Mentor & Code Reviewer</h3>
+          <h3 class="experience-title">Technical Mentor</h3>
           <p class="experience-period">2018 - Present</p>
           <p class="experience-description">
             Active mentor on <a href="https://www.codementor.io/@timbarrywoods" target="_blank" rel="noopener">Codementor</a> and freelance consultant on <a href="https://arc.dev/@timbarrywoods?preview=1" target="_blank" rel="noopener">Arc</a>, helping developers solve complex technical challenges and improve their coding skills.
@@ -124,57 +357,144 @@
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section services" id="services">
-      <h2 class="section-title animate-on-scroll"><i class="fas fa-tools"></i> Services</h2>
+    <!-- Recommendations Section -->
+    <section class="section recommendations" id="recommendations">
+      <h2 class="section-title animate-on-scroll">Recommendations</h2>
       <div class="services-intro animate-on-scroll">
-        <h3 class="services-subtitle">How I Can Help</h3>
         <p class="services-description">
-          I work with businesses and individuals to turn complex ideas into elegant, user-focused software. Whether you need a full app built from scratch, expert input on a tricky project, or ongoing technical support, I can help.
+          What colleagues and clients say about working with me.
         </p>
       </div>
-      <div class="services-grid">
-        <div class="service-card service-card-development animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-mobile-screen-button"></i>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Bespoke App Development</h3>
-            <p class="service-description">
-              I specialise in building custom cross-platform applications that fit your business needs perfectly. From concept to deployment, I ensure your app is reliable, scalable, and user-friendly.
-            </p>
-          </div>
-        </div>
+      
+      <div class="recommendations-carousel">
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            
+            <!-- Recommendation Card 1: Don Laabs -->
+            <div class="recommendation-card animate-on-scroll">
+              <div class="recommendation-header">
+                <a href="https://www.linkedin.com/in/donlaabs" target="_blank" rel="noopener" class="profile-link">
+                  <img src="assets/images/don-laabs.jpeg" alt="Don Laabs" class="profile-image">
+                </a>
+                <div class="recommendation-meta">
+                  <a href="https://www.linkedin.com/in/donlaabs" target="_blank" rel="noopener" class="recommender-name">Don Laabs</a>
+                  <p class="recommender-title">Software Development / Product Design</p>
+                  <p class="recommendation-date">May 3, 2025</p>
+                </div>
+              </div>
+              <div class="recommendation-content">
+                <p>I had the pleasure of working with Tim, a highly skilled .NET developer who brings a rare combination of technical expertise and interpersonal ease to the table. Tim specializes in WPF and .NET MAUI, and his ability to create clean, intuitive UI/UX that functions seamlessly across multiple platforms consistently impressed.</p>
+                <p>Tim is unflappable, even when facing tight deadlines or shifting requirements. His calm, focused approach helps keep projects on track and morale high. Combined with his easy-going nature and great sense of humor, he's a steady and positive presence on any team.</p>
+                <p>He also works exceptionally well with colleagues from diverse backgrounds, contributing not just strong code, but strong collaboration. I would gladly work with Tim again and highly recommend him to any team looking for a thoughtful, talented, and dependable developer.</p>
+              </div>
+            </div>
 
-        <div class="service-card service-card-freelance animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Freelance Development Support</h3>
-            <p class="service-description">
-              Need an extra pair of experienced hands? I can join your team on a freelance basis, helping deliver high-quality code, improve architecture, or tackle those features that keep getting pushed back.
-            </p>
-          </div>
-        </div>
+            <!-- Recommendation Card 2: Kirsteene Phelan -->
+            <div class="recommendation-card animate-on-scroll">
+              <div class="recommendation-header">
+                <a href="https://www.linkedin.com/in/kirsteenephelan/" target="_blank" rel="noopener" class="profile-link">
+                  <img src="assets/images/kirsteene-phelan.jpeg" alt="Kirsteene Phelan GAICD" class="profile-image">
+                </a>
+                <div class="recommendation-meta">
+                  <a href="https://www.linkedin.com/in/kirsteenephelan/" target="_blank" rel="noopener" class="recommender-name">Kirsteene Phelan GAICD</a>
+                  <p class="recommender-title">Strategic General Manager with 20yrs of global experience from startups to household names.</p>
+                  <p class="recommendation-date">June 26, 2019</p>
+                </div>
+              </div>
+              <div class="recommendation-content">
+                <p>Tim joined Rome2rio in 2017 and had an immediate impact in the team, playing a key role supporting our Data Science team and their work across business analytics and key revenue projects. Tim has a knack of being able to communicate with just about anyone across the breadth and depth of an organisation and combines creative thinking with technical problem-solving. I would recommend him highly for any technical project.</p>
+              </div>
+            </div>
 
-        <div class="service-card service-card-consulting animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-lightbulb"></i>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Consulting & Technical Guidance</h3>
-            <p class="service-description">
-              I offer consulting sessions to help you make the right technical decisions — whether that's choosing the right stack, optimising performance, or planning an app migration. Think of it as having a senior architect on call.
-            </p>
+            <!-- Recommendation Card 3: Marco Lui -->
+            <div class="recommendation-card animate-on-scroll">
+              <div class="recommendation-header">
+                <a href="https://www.linkedin.com/in/marco-lui" target="_blank" rel="noopener" class="profile-link">
+                  <img src="assets/images/marco-lui.jpeg" alt="Marco Lui" class="profile-image">
+                </a>
+                <div class="recommendation-meta">
+                  <a href="https://www.linkedin.com/in/marco-lui" target="_blank" rel="noopener" class="recommender-name">Marco Lui</a>
+                  <p class="recommender-title">Director of Data & Analytics at Rome2rio</p>
+                  <p class="recommendation-date">January 28, 2018</p>
+                </div>
+              </div>
+              <div class="recommendation-content">
+                <p>Tim is fantastic. He was thrown off the proverbial "deep end" when assigned to the data science team at Rome2rio, having only had limited experience with analysis work, but quickly adapted and became adept at implementing and reporting on data-driven improvements to our products. One of the first projects he worked on was pivotal to the growth of the business, and Tim played a critical role in building and developing the original idea into a significant revenue stream.</p>
+                <p>Tim is excellent at finding the balance between longer-term projects and taking care of quick, high-priority items. He can handle complex tasks with relatively little direction, and did a good job of shipping new products while maintaining and often improving existing infrastructure. When our analysis infrastructure suffered an outage, he took the initiative in managing the incident and putting in place additional safeguards to mitigate future issues. He also took ownership of several critical systems and quickly and efficiently serviced bug reports and test failures.</p>
+                <p>Tim is highly personable, and I thoroughly enjoyed spending time with him both at and outside work. I'm sorry to see him go and would love to work with him again if given the chance.</p>
+              </div>
+            </div>
+
+            <!-- Recommendation Card 4: Jayesh Shavdia -->
+            <div class="recommendation-card animate-on-scroll">
+              <div class="recommendation-header">
+                <a href="https://www.linkedin.com/in/jayesh-shavdia" target="_blank" rel="noopener" class="profile-link">
+                  <img src="assets/images/jayesh-shavdia.jpeg" alt="Jayesh Shavdia" class="profile-image">
+                </a>
+                <div class="recommendation-meta">
+                  <a href="https://www.linkedin.com/in/jayesh-shavdia" target="_blank" rel="noopener" class="recommender-name">Jayesh Shavdia</a>
+                  <p class="recommender-title">Managing Director - Head of Core FICC EoD and Analytics Platforms</p>
+                  <p class="recommendation-date">January 23, 2018</p>
+                </div>
+              </div>
+              <div class="recommendation-content">
+                <p>Tim worked for me at Morgan Stanley on a Fixed Income Front Office Pricing Tool in C# / Excel. This was a complex platform and Tim was able to quickly get up to speed and start developing a strong solution. He was comfortable working directly with the desk to get requirements as well as to truly understand the business impact of what he was building. An extremely strong C# developer and I would be very happy to work with him again in the future.</p>
+              </div>
+            </div>
+
+            <!-- Recommendation Card 5: Craig Hughes -->
+            <div class="recommendation-card animate-on-scroll">
+              <div class="recommendation-header">
+                <a href="https://www.linkedin.com/in/craig-hughes-aa109b56" target="_blank" rel="noopener" class="profile-link">
+                  <img src="assets/images/craig-hughes.jpeg" alt="Craig Hughes" class="profile-image">
+                </a>
+                <div class="recommendation-meta">
+                  <a href="https://www.linkedin.com/in/craig-hughes-aa109b56" target="_blank" rel="noopener" class="recommender-name">Craig Hughes</a>
+                  <p class="recommender-title">Vice President at Credit Suisse</p>
+                  <p class="recommendation-date">February 25, 2013</p>
+                </div>
+              </div>
+              <div class="recommendation-content">
+                <p>Tim joined Credit-Suisse on the graduate team, and worked directly for me in his second year. In that time his development skills grew enormously and the general quality of his work was outstanding.</p>
+              </div>
+            </div>
+
           </div>
         </div>
+        
+        <!-- Carousel Arrow Buttons -->
+        <button class="carousel-btn carousel-btn-prev" aria-label="Previous recommendation">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn carousel-btn-next" aria-label="Next recommendation">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Carousel Indicators -->
+        <div class="carousel-nav">
+          <div class="carousel-indicators">
+            <span class="indicator active" data-index="0"></span>
+            <span class="indicator" data-index="1"></span>
+            <span class="indicator" data-index="2"></span>
+            <span class="indicator" data-index="3"></span>
+            <span class="indicator" data-index="4"></span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-button">
+        <a href="#contact" class="contact-btn">Get in touch</a>
       </div>
     </section>
 
     <!-- Projects Section -->
     <section class="section projects" id="projects">
-      <h2 class="section-title animate-on-scroll"><i class="fas fa-folder-open"></i> Featured Projects</h2>
+      <h2 class="section-title animate-on-scroll">Featured Projects</h2>
+        <div class="services-intro animate-on-scroll">
+            <p class="services-description">
+                Check out a few of my recent projects.
+            </p>
+        </div>
       <div class="projects-grid">
         <div class="project-card animate-on-scroll">
           <div class="project-image">
@@ -219,7 +539,7 @@
           <div class="project-content">
             <h3 class="project-title">Visual Service</h3>
             <p class="project-description">
-              A hybrid WPF and .NET MAUI application built for HVAC engineers to connect field teams with head office in real time. It includes live video calls, Bluetooth device connectivity, real-time charting, and system analytics — all wrapped in a user-friendly interface. Helping engineers work smarter and train faster on complex systems has been one of the most rewarding parts of this project.
+              A hybrid WPF and .NET MAUI application built for HVAC engineers to connect field teams with head office in real time. It includes live video calls, Bluetooth device connectivity, real-time charting, and system analytics, all wrapped in a user-friendly interface. Helping engineers work smarter and train faster on complex systems has been one of the most rewarding parts of this project.
             </p>
             <div class="project-tech">
               <span class="tech-tag">WPF</span>
@@ -232,88 +552,17 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="section skills" id="skills">
-      <h2 class="section-title animate-on-scroll"><i class="fas fa-code"></i> Technical Expertise</h2>
-      <div class="skills-content">
-        <div class="skills-category">
-          <h3 class="skills-category-title">Core Skills</h3>
-          <div class="skills-grid">
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">C#</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">.NET MAUI</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">WPF</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-code"></i></div>
-              <div class="skill-name">MVVM</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-              <div class="skill-name">Azure</div>
-            </div>
-
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-              <div class="skill-name">Git</div>
-            </div>
-            <div class="skill-item animate-on-scroll">
-              <div class="skill-icon"><i class="fas fa-database"></i></div>
-              <div class="skill-name">SQL</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skills-category secondary-skills">
-          <h3 class="skills-category-title">Also Experienced In</h3>
-          <div class="skills-grid secondary-skills-grid">
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-cloud"></i></div>
-              <div class="skill-name">Azure Functions</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-diagram-project"></i></div>
-              <div class="skill-name">REST API Design</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fab fa-microsoft"></i></div>
-              <div class="skill-name">Xamarin (legacy)</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-robot"></i></div>
-              <div class="skill-name">AI API Integrations</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-gears"></i></div>
-              <div class="skill-name">CI/CD Pipelines</div>
-            </div>
-            <div class="skill-item secondary-skill-item animate-on-scroll">
-              <div class="skill-icon secondary-skill-icon"><i class="fas fa-layer-group"></i></div>
-              <div class="skill-name">Cross-Platform Architecture</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="section contact" id="contact">
-      <h2 class="section-title"><i class="fas fa-paper-plane"></i> Let's Work Together</h2>
+      <h2 class="section-title"><i class="fas fa-paper-plane"></i>  Let's Work Together</h2>
       <div class="contact-content">
         <div class="contact-info animate-on-scroll">
-          <h3>Ready to Start Your Next Project?</h3>
+          <h3 class="ready-to-start">Ready to Start Your Next Project?</h3>
           <p>
             If you'd like to discuss a project, app idea, or collaboration, I'd love to hear from you.
           </p>
           <p>
-            Email me at tim@timbarrywoods.dev or connect on LinkedIn.
+            Email me at <a href="mailto:tim@timbarrywoods.dev">tim@timbarrywoods.dev</a> or connect on <a href="https://linkedin.com/in/tim-barry-woods" target="_blank" rel="noopener">LinkedIn</a>.
           </p>
           <div class="contact-links">
             <a href="mailto:tim@timbarrywoods.dev" class="contact-link">
@@ -357,7 +606,7 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; <span id="year"></span> Tim Barry-Woods. All rights reserved. Built with passion and precision.</p>
+    <p>&copy; <span id="year"></span> Tim Barry-Woods. All rights reserved.</p>
   </footer>
 
   <script src="assets/js/script.js"></script>
