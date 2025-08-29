@@ -12,10 +12,32 @@
   --color-accent1: #FFBA49;
   --color-accent2: #B61624;
   --color-bg: #F2FEFF;
+  --color-bg2: #f7fafc;
+  --color-bg3: #edf2f7;
+  --color-bg4: #f8fafc;
   --color-white: #F2FEFF;
   --color-text: #131515;
+  --color-text2: #232525;
+  --color-text3: #333535;
   --color-header-bg: #393D3F;
 }
+
+/*:root {*/
+/*  --color-primary: #21B4B8;*/
+/*  --color-secondary: #0F8B8D;*/
+/*  --color-accent: #EC9A29;*/
+/*  --color-accent1: #FFBA49;*/
+/*  --color-accent2: #B61624;*/
+/*  --color-bg: #393D3F;*/
+/*  --color-bg2: #494D4F;*/
+/*  --color-bg3: #595D5F;*/
+/*  --color-bg4: #696D6F;*/
+/*  --color-white: #F2FEFF;*/
+/*  --color-text: #F2FEFF;*/
+/*  --color-text2: #EBFDFF;*/
+/*  --color-text3: #B0B3B5;*/
+/*  --color-header-bg: #0F8B8D;*/
+/*}*/
 
 html {
   scroll-behavior: smooth;
@@ -39,7 +61,7 @@ h1, h2 {
 
 h3, h4, h5, h6 {
   font-family: "Jersey 15", monospace;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -324,7 +346,7 @@ h3, h4, h5, h6 {
   display: inline-block;
   padding: 1rem 2rem;
   background: rgba(255, 255, 255, 0.1);
-  color: var(--color-bg);
+  color: var(--color-white);
   text-decoration: none;
   border-radius: 50px;
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -359,7 +381,6 @@ h3, h4, h5, h6 {
 .section-title {
   font-size: clamp(2rem, 5vw, 3rem);
   text-align: center;
-  margin-bottom: 1.5rem;
   color: var(--color-text);
   position: relative;
   display: flex;
@@ -382,7 +403,7 @@ h3, h4, h5, h6 {
     display: inline-block;
     padding: 1rem 2rem;
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    color: var(--color-bg);
+    color: var(--color-white);
     text-decoration: none;
     text-align: center;
     border-radius: 50px;
@@ -424,7 +445,7 @@ h3, h4, h5, h6 {
 
 /* ===== ABOUT SECTION ===== */
 .about {
-    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    background: linear-gradient(135deg, var(--color-bg2) 0%, var(--color-bg3) 100%);
 }
 
 .about-content {
@@ -453,7 +474,7 @@ h3, h4, h5, h6 {
 .about-text {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--color-header-bg);
+  color: var(--color-text2);
 }
 
 .about-text p {
@@ -519,7 +540,7 @@ h3, h4, h5, h6 {
 }
 
 .project-description {
-  color: var(--color-header-bg);
+  color: var(--color-text2);
   margin-bottom: 1rem;
   line-height: 1.6;
 }
@@ -729,7 +750,7 @@ h3, h4, h5, h6 {
 }
 
 .logos-description {
-  color: var(--color-header-bg);
+  color: var(--color-bg);
   font-size: 1.1rem;
   line-height: 1.6;
   max-width: 600px;
@@ -790,7 +811,7 @@ h3, h4, h5, h6 {
 /* ===== CONTACT SECTION ===== */
 .contact {
   background: var(--color-header-bg);
-  color: var(--color-bg);
+  color: var(--color-text2);
 }
 
 .contact .section-title i {
@@ -997,7 +1018,7 @@ h3, h4, h5, h6 {
 
 /* ===== EXPERIENCE SECTION ===== */
 .experience {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--color-bg2) 0%, var(--color-bg3) 100%);
 }
 
 .experience-content {
@@ -1036,7 +1057,7 @@ h3, h4, h5, h6 {
 }
 
 .experience-description {
-  color: var(--color-header-bg);
+  color: var(--color-text2);
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
@@ -1060,7 +1081,7 @@ h3, h4, h5, h6 {
 .experience-highlights li {
   position: relative;
   padding-left: 1.5rem;
-  color: var(--color-header-bg);
+  color: var(--color-text2);
   margin-bottom: 0.5rem;
   line-height: 1.6;
 }
@@ -1102,7 +1123,7 @@ h3, h4, h5, h6 {
 
 .services-description {
   font-size: 1.1rem;
-  color: var(--color-header-bg);
+  color: var(--color-text2);
   line-height: 1.7;
   max-width: 700px;
   margin: 0 auto;
@@ -1184,6 +1205,7 @@ h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--color-white);
   font-size: 2rem;
 }
 
@@ -1193,6 +1215,7 @@ h3, h4, h5, h6 {
 .service-card-consulting .service-icon {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
+  color: var(--color-white);
 }
 
 .service-title {
@@ -1229,7 +1252,7 @@ h3, h4, h5, h6 {
 
 /* ===== RECOMMENDATIONS SECTION ===== */
 .recommendations {
-    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    background: linear-gradient(135deg, var(--color-bg3) 0%, var(--color-bg4) 100%);
 }
 
 .recommendations-carousel {
@@ -1312,7 +1335,7 @@ h3, h4, h5, h6 {
 }
 
 .recommender-title {
-  color: var(--color-header-bg);
+  color: var(--color-text2);
   font-size: 1rem;
   line-height: 1.4;
   margin-bottom: 0.5rem;
@@ -1330,7 +1353,7 @@ h3, h4, h5, h6 {
 
 .recommendation-content {
   line-height: 1.7;
-  color: var(--color-header-bg);
+  color: var(--color-text2);
   word-wrap: break-word;
   overflow-wrap: break-word;
   max-width: 100%;
