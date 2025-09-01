@@ -8,9 +8,10 @@
 :root {
   --color-primary: #21E4E8;
   --color-secondary: #0F8B8D;
-  --color-accent: #EC9A29;
-  --color-accent1: #FFBA49;
-  --color-accent2: #B61624;
+  --color-accent: #FCBA29;
+  --color-accent1: #FFDA49;
+  --color-accent2: #EC9A29;
+  --color-accent3: #FFBA49;
   --color-bg: #F2FEFF;
   --color-bg2: #f7fafc;
   --color-bg3: #edf2f7;
@@ -1183,7 +1184,7 @@ h3, h4, h5, h6 {
 }
 
 .service-card-freelance {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent1));
+  background: linear-gradient(135deg, var(--color-accent2), var(--color-accent3));
   color: var(--color-white);
 }
 
