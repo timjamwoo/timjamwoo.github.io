@@ -611,7 +611,7 @@ button {
 /* ---------- Phone frame ---------- */
 .phone {
   width: 236px;
-  height: 487px;
+  height: auto;
   border-radius: 36px;
   background: var(--bezel);
   border: 1px solid var(--line);
@@ -622,7 +622,7 @@ button {
 
 .phone-sm {
   width: 210px;
-  height: 433px;
+  height: auto;
   border-radius: 32px;
   padding: 7px;
   box-shadow: none;
@@ -630,7 +630,8 @@ button {
 
 .screen {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 460 / 1000;
   border-radius: 30px;
   background: var(--surface);
   position: relative;
@@ -647,17 +648,15 @@ button {
   background: var(--bg);
 }
 
-/* The screenshots carry the phone's own status bar. The image is sized from its own aspect
-   ratio (no percentage height, which Safari resolves differently), made slightly wider than
-   the screen and shifted up so the status bar sits under the bezel; the screen clips the rest. */
+/* The screen keeps the screenshots' own aspect ratio (iPhone, 460:1000), so a screenshot fills it
+   without cropping; the island overlay sits over the status bar as on a real phone. */
 .screen img.screenshot {
   position: absolute;
-  top: -6%;
-  left: 50%;
-  width: 108%;
-  max-width: none;
-  height: auto;
-  transform: translateX(-50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .phone-sm .notch {
@@ -752,14 +751,12 @@ button {
 
   .phone {
     width: 156px;
-    height: 322px;
     border-radius: 26px;
     padding: 6px;
   }
 
   .work-shots .phone {
     width: 132px;
-    height: 272px;
     border-radius: 22px;
     padding: 5px;
   }
