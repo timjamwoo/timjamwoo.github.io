@@ -53,6 +53,19 @@
     menuToggle.addEventListener("click", function () {
       var open = navLinks.classList.toggle("is-open");
       menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) {
+        /* The links sit before the toggle in the DOM, so move focus to them. */
+        var first = navLinks.querySelector("a");
+        if (first) first.focus();
+      }
+    });
+
+    navLinks.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && navLinks.classList.contains("is-open")) {
+        navLinks.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.focus();
+      }
     });
 
     navLinks.addEventListener("click", function (event) {
