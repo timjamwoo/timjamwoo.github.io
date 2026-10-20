@@ -647,15 +647,17 @@ button {
   background: var(--bg);
 }
 
-/* The screenshots carry the phone's own status bar; shift them up so it sits under the bezel. */
+/* The screenshots carry the phone's own status bar. The image is sized from its own aspect
+   ratio (no percentage height, which Safari resolves differently), made slightly wider than
+   the screen and shifted up so the status bar sits under the bezel; the screen clips the rest. */
 .screen img.screenshot {
   position: absolute;
-  top: -4.5%;
-  left: 0;
-  width: 100%;
-  height: 104.5%;
-  object-fit: cover;
-  object-position: top;
+  top: -6%;
+  left: 50%;
+  width: 108%;
+  max-width: none;
+  height: auto;
+  transform: translateX(-50%);
 }
 
 .phone-sm .notch {
